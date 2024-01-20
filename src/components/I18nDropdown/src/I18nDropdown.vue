@@ -34,14 +34,14 @@ const setLang = (lang: LocaleType) => {
 </script>
 
 <template>
-  <el-dropdown :class="prefixCls" trigger="click" @command="setLang">
+  <el-dropdown :class="prefixCls" trigger="click" placement="top-start"  @command="setLang">
     <span class="el-dropdown-link">
       {{ currentLang.name }}
       <Icon icon="entypo:language" class="Icon" width="28"  :inline="true" />
     </span>
     <template #dropdown>
-      <el-dropdown-menu style=" color: black; ">
-        <el-dropdown-item v-for="item in langMap" :key="item.lang" :command="item.lang">
+      <el-dropdown-menu>
+        <el-dropdown-item v-for="item in langMap" :key="item.lang" :command="item.lang" :divided="false" style="color: #409EFF; margin-right:16px; margin-bottom: 8px; margin-top: 8px;">
           {{ item.name }}
         </el-dropdown-item>
       </el-dropdown-menu>
@@ -52,11 +52,11 @@ const setLang = (lang: LocaleType) => {
 <style scoped>
 
 .el-dropdown{
-  width: 40px;
+  /* width: 40px; */
+  margin-left: 15px;
 }
 .el-dropdown-link {
   cursor: pointer;
   color: #409EFF;
 }
-
 </style>

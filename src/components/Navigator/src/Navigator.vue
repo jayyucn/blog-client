@@ -4,8 +4,6 @@ import { i18n } from '@/i18n';
 import { ref } from 'vue';
 import { router } from '@/router';
 
-
-
 // const route = router.currentRoute.value;
 const routes = router.getRoutes()
 const lastPath = window.location.pathname;
@@ -13,7 +11,7 @@ const curIdx = routes.findIndex(rec => rec.path === lastPath) + 1 + "";
 let activeIndex = ref(curIdx || '1')
 router.beforeEach((to, from, next) => {
   console.log('to= ' + to.path + ' from= ' + from.path)
-    next()
+  next()
 })
 
 const handleSelect = (key: string, _: string[]) => {
