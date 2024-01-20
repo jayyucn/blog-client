@@ -1,87 +1,56 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-import { useI18n } from '@/utils/util.i18n';
-const { t } = useI18n()
+import { i18n } from './i18n';
+
 </script>
 
 <template>
-  <header>
-    <img :alt="t('common.vueLogo')" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld :msg= "t('common.youDidIt')"/>
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <div class="common-layout">
+    <el-container>
+      <el-header>
+        <Navigator />
+      </el-header>
+      <el-main>
+        <RouterView />
+      </el-main>
+      <el-footer>{{i18n.t('common.copyRight')}}@jayyu.cn</el-footer>
+    </el-container>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
+<style lang="less" scoped>
+.common-layout {
+  display: flex;  
+  flex-direction: column;  
+  // min-height: 100vh;  
+  // min-width: 100vw;
+  min-width:100vw;
+  .el-header,
+  .el-footer,
+  .el-main {
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    justify-content: center;
+  }
+  .el-header{
+    position: fixed !important;
+    width: 100%;
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
+  .el-header,
+  .el-footer {
+    background-color: @headerBgColor;
+    color: var(--el-text-color-primary);
+    text-align: center;
+  }
+  .el-footer {
+    align-items: center;
   }
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+  .el-main {
+    height: 100%;
+    // width: inherit;
+    background-color: var(--el-color-primary-light-9);
+    color: var(--el-text-color-primary);
   }
 }
 </style>

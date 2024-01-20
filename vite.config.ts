@@ -1,3 +1,4 @@
+import path from 'path'
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
@@ -7,17 +8,58 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import EslintPlugin from 'vite-plugin-eslint'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 
+const pathSrc = path.resolve(__dirname, 'src')
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
     AutoImport({
-      resolvers: [ElementPlusResolver()],
+      // Auto import functions from Vue, e.g. ref, reactive, toRef...
+      // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
+      imports: ['vue'],
+
+      // Auto import functions from Element Plus, e.g. ElMessage, ElMessageBox... (with style)
+      // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
+      resolvers: [
+        ElementPlusResolver({
+          importStyle: 'sass',
+        }),
+
+        // Auto import icon components
+        // 自动导入图标组件
+        IconsResolver({
+          prefix: 'Icon',
+        }),
+      ],
+
+      dts: path.resolve(pathSrc, 'auto-imports.d.ts'),
     }),
+
     Components({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [
+        // Auto register icon components
+        // 自动注册图标组件
+        IconsResolver({
+          enabledCollections: ['ep'],
+        }),
+        // Auto register Element Plus components
+        // 自动导入 Element Plus 组件
+        ElementPlusResolver({
+          importStyle: 'sass',
+        }),
+      ],
+
+      dts: path.resolve(pathSrc, 'components.d.ts'),
     }),
+
+    Icons({
+      autoInstall: true,
+      compiler: 'vue3',
+    }),
+   
 
     EslintPlugin({
       cache: false,
@@ -26,9 +68,17 @@ export default defineConfig({
   ],
   css: {
     preprocessorOptions: {
+      scss: {
+        //element-plus主题色配置：引入 index.scss
+        // additionalData: `@use "@/styles/index.scss" as *;`
+      },
       less: {
+        math: "always",
+        globalVars: {
+          headerBgColor: "#fff",
+        },
         additionalData: '@import "./src/styles/variables.module.less";',
-        javascriptEnabled: true
+        javascriptEnabled: true,
       }
     }
   },
@@ -41,7 +91,7 @@ export default defineConfig({
       {
         find: '@',
         replacement: fileURLToPath(new URL('./src', import.meta.url))
-    }]
+      }]
   },
   optimizeDeps: {
     include: [
@@ -50,8 +100,7 @@ export default defineConfig({
       'vue-types',
       'element-plus/es/locale/lang/zh-cn',
       'element-plus/es/locale/lang/en',
-      '@iconify/iconify',
-      'axios',
+      '@element-plus/icons-vue',
     ]
   }
 })

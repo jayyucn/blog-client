@@ -2,9 +2,10 @@
 import { computed, unref } from 'vue'
 import { ElDropdown, ElDropdownMenu, ElDropdownItem } from 'element-plus'
 import { useLocaleStore } from '@/stores/modules/store.i18n'
-import { useLocale } from '@/utils/util.locale'
 import { propTypes } from '@/utils/util.proptypes'
 import { useDesign } from '@/utils/util.design'
+import { useLocale } from '@/helpers/helper.locale'
+import { Icon } from '@iconify/vue';
 
 const { getPrefixCls } = useDesign()
 
@@ -33,21 +34,29 @@ const setLang = (lang: LocaleType) => {
 </script>
 
 <template>
-  <ElDropdown :class="prefixCls" trigger="click" @command="setLang">
-    <Icon
-      :size="18"
-      icon="ion:language-sharp"
-      class="cursor-pointer !p-0"
-      :class="$attrs.class"
-      :color="color"
-    />
+  <el-dropdown :class="prefixCls" trigger="click" @command="setLang">
+    <span class="el-dropdown-link">
+      {{ currentLang.name }}
+      <Icon icon="entypo:language" class="Icon" width="28"  :inline="true" />
+    </span>
     <template #dropdown>
-      <ElDropdownMenu>
-        <ElDropdownItem v-for="item in langMap" :key="item.lang" :command="item.lang">
+      <el-dropdown-menu style=" color: black; ">
+        <el-dropdown-item v-for="item in langMap" :key="item.lang" :command="item.lang">
           {{ item.name }}
-        </ElDropdownItem>
-      </ElDropdownMenu>
+        </el-dropdown-item>
+      </el-dropdown-menu>
     </template>
-  </ElDropdown>
+  </el-dropdown>
 </template>
-@/utils/util.proptypes
+
+<style scoped>
+
+.el-dropdown{
+  width: 40px;
+}
+.el-dropdown-link {
+  cursor: pointer;
+  color: #409EFF;
+}
+
+</style>

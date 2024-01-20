@@ -28,7 +28,7 @@ interface AppState {
   sizeMap: ComponentSize[]
   mobile: boolean
   footer: boolean
-  theme: ThemeTypes
+  theme: Theme
   fixedMenu: boolean
 }
 
@@ -59,7 +59,7 @@ export const useAppStore = defineStore('app', {
 
       layout: 'classic', // layout布局
       isDark: false, // 是否是暗黑模式
-      currentSize: 'default', // 组件尺寸
+      currentSize: 'large', // 组件尺寸
       theme: {
         // 主题色
         elColorPrimary: '#409eff',
@@ -162,7 +162,7 @@ export const useAppStore = defineStore('app', {
     getMobile(): boolean {
       return this.mobile
     },
-    getTheme(): ThemeTypes {
+    getTheme(): Theme {
       return this.theme
     },
     getFooter(): boolean {
@@ -248,7 +248,7 @@ export const useAppStore = defineStore('app', {
     setMobile(mobile: boolean) {
       this.mobile = mobile
     },
-    setTheme(theme: ThemeTypes) {
+    setTheme(theme: Theme) {
       this.theme = Object.assign(this.theme, theme)
     },
     setCssVarTheme() {

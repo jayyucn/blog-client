@@ -48,3 +48,7 @@ const getValueType = (value: any) => {
     }
   }
   
+ const { getStorage, setStorage } = useStorage('localStorage')
+
+ export const getLocalStorage = getStorage
+ export const setLocalStorage = setStorage
