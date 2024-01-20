@@ -3,7 +3,6 @@
 import { i18n } from '@/i18n';
 import { ref } from 'vue';
 import { router } from '@/router';
-import { createNavigationProgress } from '@/utils/util.state'
 
 
 
@@ -16,23 +15,6 @@ router.beforeEach((to, from, next) => {
   console.log('to= ' + to.path + ' from= ' + from.path)
     next()
 })
-
-  const state = createNavigationProgress()
-
-  router.beforeEach((_, __, next) => {
-    state.start()
-    next()
-  })
-
-  router.afterEach(() => state.finish())
-  router.onError(() => state.finish())
-
-  onBeforeUnmount(() => {
-    state.clear()
-  })
-// const menuTitle = computed(route: any) => {
-//   return i18n.t(String(route.name));
-// }
 
 const handleSelect = (key: string, _: string[]) => {
   router.push(routes[Number(key) - 1].path)
