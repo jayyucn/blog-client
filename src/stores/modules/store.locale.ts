@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-import { store } from '../index'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import zhTw from 'element-plus/es/locale/lang/zh-tw'
 import en from 'element-plus/es/locale/lang/en'
@@ -64,6 +63,5 @@ export const useLocaleStore = defineStore('i18n', {
   }
 })
 
-export const useLocaleStoreWithOut = () => {
-  return useLocaleStore(store)
-}
+export type LocaleStore = ReturnType<typeof useLocaleStore>
+

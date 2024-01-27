@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useAppStore } from '@/stores/modules/store.app'
-import { useLocaleStore } from '@/stores/modules/store.i18n'
+import { useLocaleStore } from '@/stores/modules/store.locale'
 import { setCssVar } from '@/utils'
 import { useDesign } from '@/utils/util.design'
 import { propTypes } from '@/utils/util.proptypes'
@@ -60,3 +60,4 @@ const currentLocale = computed(() => localeStore.currentLocale)
     <slot></slot>
   </ElConfigProvider>
 </template>
+@/stores/modules/store.locale

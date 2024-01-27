@@ -1,0 +1,16 @@
+{
+  "article": {
+    "featured": "精选",
+    "latest": "最新",
+    "popular": "热门"
+  },
+  "common": {
+    "about": "关于",
+    "blog": "博客",
+    "copyRight": "版权所有",
+    "home": "首页",
+    "search": "搜索",
+    "vueLogo": "Vue 标志",
+    "youDidIt": "你做到了！"
+  }
+}

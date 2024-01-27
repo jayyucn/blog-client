@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, unref } from 'vue'
 import { ElDropdown, ElDropdownMenu, ElDropdownItem } from 'element-plus'
-import { useLocaleStore } from '@/stores/modules/store.i18n'
+import { useLocaleStore } from '@/stores/modules/store.locale'
 import { propTypes } from '@/utils/util.proptypes'
 import { useDesign } from '@/utils/util.design'
 import { useLocale } from '@/helpers/helper.locale'
@@ -60,3 +60,4 @@ const setLang = (lang: LocaleType) => {
   color: #409EFF;
 }
 </style>
+@/stores/modules/store.locale

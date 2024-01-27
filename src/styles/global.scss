@@ -1,0 +1,26 @@
+@use './variables.scss';
+@use './theme.scss';
+
+:root {
+    background-color: $body-bg;
+    
+    /* 引入主题样式 */
+    // &[data-theme='light'] {
+      @include appLightTheme();
+    // }
+
+    // &[data-theme='dark'] {
+    //     /* 引入深色主题样式 */
+        // @include appDarkTheme();
+    // }
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  user-select: none;
+  scrollbar-width: thin;
+  background-color: var(--body-bg);
+  color: var(--text-color);
+
+}

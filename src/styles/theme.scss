@@ -1,0 +1,29 @@
+/// @name theme
+
+@mixin css-var(
+  $theme-text,
+  $theme-bg,
+  ) {
+    #{--text-color}: $theme-text;
+    #{--body-bg}: $theme-bg;
+    #{--header-bg}: rgba(lighten($theme-bg, 10%), 0.9);
+    #{--module-bg}: darken($theme-bg, 10%);
+    #{--module-bg-light}: lighten($theme-bg, 10%);
+ 
+}
+
+@mixin appLightTheme() {
+  @include css-var(
+    $theme-text: rgba(#000, 0.68), 
+    $theme-bg: #f7f7f7,
+    // $theme-header-bg: rgba(#e3e3e3, 0.9),
+  );
+}
+
+@mixin appDarkTheme() {
+  @include css-var(
+    $theme-text: #f0f0f0,
+    $theme-bg: #000,
+    // $theme-header-bg: rgba(#000, 0.8),
+  );
+}

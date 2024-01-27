@@ -1,0 +1,16 @@
+{
+  "article": {
+    "featured": "Featured",
+    "latest": "Latest",
+    "popular": "Popular"
+  },
+  "common": {
+    "about": "About",
+    "blog": "Blog",
+    "copyRight": "copyRight",
+    "home": "Home",
+    "search": "Search",
+    "vueLogo": "Vue logo",
+    "youDidIt": "You did it!"
+  }
+}

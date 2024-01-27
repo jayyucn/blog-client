@@ -1,19 +1,30 @@
-import path from 'path'
 import { fileURLToPath, URL } from 'node:url'
+import path from 'path'
 
-import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { loadEnv, type ConfigEnv, type UserConfig } from 'vite'
 
 import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import EslintPlugin from 'vite-plugin-eslint'
-import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
+import Icons from 'unplugin-icons/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import Components from 'unplugin-vue-components/vite'
+import EslintPlugin from 'vite-plugin-eslint'
+
+const root = process.cwd()
 
 const pathSrc = path.resolve(__dirname, 'src')
 // https://vitejs.dev/config/
-export default defineConfig({
+export default ({ command, mode }: ConfigEnv): UserConfig => {
+  let env = {} as any
+  const isBuild = command === 'build'
+  if (!isBuild) {
+    env = loadEnv(process.argv[3] === '--mode' ? process.argv[4] : process.argv[3], root)
+  } else {
+    env = loadEnv(mode, root)
+  }
+  return{
+    base:  env.VITE_BASE_PATH,
   plugins: [
     vue(),
     AutoImport({
@@ -24,9 +35,7 @@ export default defineConfig({
       // Auto import functions from Element Plus, e.g. ElMessage, ElMessageBox... (with style)
       // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
       resolvers: [
-        ElementPlusResolver({
-          importStyle: 'sass',
-        }),
+        ElementPlusResolver(),
 
         // Auto import icon components
         // 自动导入图标组件
@@ -47,9 +56,7 @@ export default defineConfig({
         }),
         // Auto register Element Plus components
         // 自动导入 Element Plus 组件
-        ElementPlusResolver({
-          importStyle: 'sass',
-        }),
+        ElementPlusResolver(),
       ],
 
       dts: path.resolve(pathSrc, 'components.d.ts'),
@@ -69,17 +76,17 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        //element-plus主题色配置：引入 index.scss
-        // additionalData: `@use "@/styles/index.scss" as *;`
+        // 引入全局样式
+        additionalData: `@import '@/styles/app.scss';`
       },
-      less: {
-        math: "always",
-        globalVars: {
-          headerBgColor: "#fff",
-        },
-        additionalData: '@import "./src/styles/variables.module.less";',
-        javascriptEnabled: true,
-      }
+      // less: {
+      //   math: "always",
+      //   globalVars: {
+      //     headerBgColor: "#fff",
+      //   },
+      //   additionalData: '@import "./src/styles/variables.module.less";',
+      //   javascriptEnabled: true,
+      // }
     }
   },
   resolve: {
@@ -93,6 +100,18 @@ export default defineConfig({
         replacement: fileURLToPath(new URL('./src', import.meta.url))
       }]
   },
+  server: {
+    host: '0.0.0.0',
+    port: 3000,
+    open: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+  },
   optimizeDeps: {
     include: [
       'vue',
@@ -103,4 +122,5 @@ export default defineConfig({
       '@element-plus/icons-vue',
     ]
   }
-})
+}
+}

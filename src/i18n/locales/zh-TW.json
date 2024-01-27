@@ -1,0 +1,16 @@
+{
+  "article": {
+    "featured": "精選",
+    "latest": "最新",
+    "popular": "熱門"
+  },
+  "common": {
+    "about": "關於",
+    "blog": "部落格",
+    "copyRight": "版權所有",
+    "home": "首頁",
+    "search": "檢索",
+    "vueLogo": "Vue 標誌",
+    "youDidIt": "你做到le！"
+  }
+}

@@ -1,7 +1,12 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import type { App } from 'vue'
 import { i18n } from '@/i18n'
+import type { App } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+
+/// 核心页面
+// 主页面
+import HomeMidList from '@/views/home/HomeMidList.vue'
+import HomeView from '@/views/home/HomeView.vue'
+
 
  export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,7 +14,18 @@ import { i18n } from '@/i18n'
     {
       path: '/',
       name: i18n.t('common.home'),
-      component: HomeView
+      component: HomeView,
+      children: [
+          {
+            path:'/',
+            component: HomeMidList,
+          },
+          {
+            path: '/article/:articleId',
+            component: ()=> import('@/views/home/HomeMidDetail.vue'),
+            props: (to) => ({articleId: Number(to.params.articleId)}),
+          }
+      ]
     },
     {
       path: '/blog',

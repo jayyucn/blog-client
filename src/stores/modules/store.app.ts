@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-import { store } from '../index'
 import { setCssVar, humpToUnderline } from '@/utils'
 import { mix } from '@/utils/util.color'
 import { ElMessage, type ComponentSize } from 'element-plus'
@@ -275,6 +274,5 @@ export const useAppStore = defineStore('app', {
   persist: true
 })
 
-export const useAppStoreWithOut = () => {
-  return useAppStore(store)
-}
+export type AppStore = ReturnType<typeof useAppStore>
+

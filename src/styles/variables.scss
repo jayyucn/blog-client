@@ -1,0 +1,19 @@
+@use 'sass:math';
+
+// 定义变量$body-bg，并将其设置为var(--body-bg)的值
+$body-bg: var(--body-bg);
+
+$header-bg: var(--header-bg);
+
+// 设置header的高度为64像素
+$header-height: 64px;
+$borderRadius: var(--el-border-radius-base);//4px
+
+
+
+//页面布局相关变量
+$margin-default: 8px;
+
+
+//颜色
+

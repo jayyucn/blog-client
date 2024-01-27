@@ -1,0 +1,24 @@
+@mixin rightColumn {}
+
+
+@mixin leftBorder {
+    border-radius: $borderRadius 0px 0px $borderRadius;
+}
+
+@mixin rightBorder {
+    border-radius: 0px $borderRadius $borderRadius 0px;
+}
+
+@mixin border {
+    border-radius: $borderRadius;
+}
+
+@mixin homeRightContainer() {
+    @include border();
+    background-color: var(--module-bg);
+}
+
+@mixin fullFilled {
+    width: 100%;
+    height: 100%;
+}

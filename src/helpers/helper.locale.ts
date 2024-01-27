@@ -1,5 +1,5 @@
 import { CreateI18n, setHtmlPageLang } from "@/i18n"
-import { useLocaleStoreWithOut } from "@/stores/modules/store.i18n"
+import Store from "@/stores"
 
 export const useLocale = () => {
     // Switching the language will change the locale of useI18n
@@ -20,14 +20,12 @@ export const useLocale = () => {
 }
 
 const setI18nLanguage = (locale: LocaleType) => {
-    const localeStore = useLocaleStoreWithOut()
-
     if (CreateI18n.mode === 'legacy') {
         CreateI18n.global.locale = locale
     } else {
         (CreateI18n.global.locale as any).value = locale
     }
-    localeStore.setCurrentLocale({
+    Store.localeStore.setCurrentLocale({
         lang: locale
     })
     setHtmlPageLang(locale)
