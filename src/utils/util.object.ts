@@ -1,6 +1,6 @@
 
 // 导出一个deepClone函数，用于深拷贝一个对象
-export function deepClone<T>(source: T): T {
+export function deepClone<T>(source: T,): T {
     // 如果source不是对象类型，或者source为null，则直接返回source
     if (typeof source !== "object" || source === null) {
       return source as T
@@ -12,7 +12,8 @@ export function deepClone<T>(source: T): T {
     }
   
     // 否则，source是普通对象，创建一个新的空对象，用于存放深拷贝后的结果
-    const target = {} as T
+    let target = {} as T
+    if(typeof source === "object") target = new (source.constructor as any)
     // 遍历source对象的每一个属性，对每一个属性进行深拷贝，并将结果赋值给target对象
     for (const key in source) {
       if (Object.prototype.hasOwnProperty.call(source, key)) {

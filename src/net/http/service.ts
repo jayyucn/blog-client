@@ -1,15 +1,15 @@
 import axios, { AxiosError } from 'axios'
 import { ElMessage } from 'element-plus'
 import qs from 'qs'
-import { PATH_URL, REQUEST_TIMEOUT, SUCCESS_CODE, TRANSFORM_REQUEST_DATA } from './config'
-import type { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig, RequestConfig } from './types'
+import { PATH_URL, TRANSFORM_REQUEST_DATA } from './config'
+import { ResponseStatus, type AxiosInstance, type AxiosResponse, type InternalAxiosRequestConfig, type RequestConfig } from './types'
 
 
 const abortControllerMap: Map<string, AbortController> = new Map()
-let baseUrl = PATH_URL??"http://localhost:8000"
-baseUrl.startsWith('http://')? baseUrl: baseUrl = 'http://' + baseUrl
+let baseUrl = PATH_URL
+baseUrl.startsWith('http://') ? baseUrl : baseUrl = 'http://' + baseUrl
 const axiosInstance: AxiosInstance = axios.create({
-  timeout: REQUEST_TIMEOUT,
+  timeout: 600000,// REQUEST_TIMEOUT,
   baseURL: baseUrl
 })
 
@@ -71,9 +71,11 @@ const defaultResponseInterceptors = (response: AxiosResponse) => {
   if (response?.config?.responseType === 'blob') {
     // 如果是文件流，直接过
     return response
-  } else if (response.data.code === SUCCESS_CODE) {
+  }
+  else if (response.data.status === ResponseStatus.Success) {
     return response.data
-  } else {
+  }
+  else {
     ElMessage.error(response?.data?.message)
   }
 }
@@ -88,8 +90,7 @@ const service = {
         config = config.interceptors.requestInterceptors(config as any)
       }
 
-      axiosInstance
-        .request(config)
+      axiosInstance.request(config)
         .then((res) => {
           resolve(res)
         })

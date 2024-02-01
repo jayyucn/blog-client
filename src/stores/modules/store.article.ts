@@ -1,4 +1,6 @@
+import type ArticleBrief from '@/data/article/article.brief';
 import type ArticleDetail from '@/data/article/article.detail';
+import type { Pagination, PaginationList } from '@/interfaces/interface.common';
 import { deepClone } from '@/utils/util.object';
 import { defineStore } from 'pinia';
 
@@ -37,6 +39,9 @@ export const useArticleDetailStore = defineStore('articleDetail', {
   getters: {
     getArticle(): ArticleDetail {
       return this.article
+    },
+    getContent(): string {
+      return this.article.content
     }
   },
   actions: {
@@ -44,8 +49,55 @@ export const useArticleDetailStore = defineStore('articleDetail', {
       this.article = deepClone(article)
     }
   },
-  persist: true
 })
 
+interface PaginationListState {
+  pagination: Pagination
+  articleList: ArticleBrief[]
+}
+
 export type ArticleDetailStore = ReturnType<typeof useArticleDetailStore>
+
+export const useArticleListStore = defineStore('articleList', {
+  state: (): PaginationListState => {
+    return {
+      pagination: {
+        current_page: 1,
+        total_page: 1,
+        page_size: 10,
+        total_count: 0,
+      },
+      articleList: [], // 文章列表
+    }
+  },
+  getters: {
+    getPagination(): Pagination {
+      return this.pagination
+    },
+
+    getCurrentPage(): number {
+      return this.pagination.current_page || 1
+    },
+
+    getPageSize(): number {
+      return this.pagination.page_size || 10
+    },
+
+    getTotalCount(): number {
+      return this.pagination.total_count || 0
+    },
+
+    getArticleList(): ArticleBrief[] {
+      return this.articleList
+    }
+  },
+  actions: {
+    setPaginationList(list: PaginationList<ArticleBrief>) {
+      this.pagination = deepClone(list.pagination)
+      this.articleList = deepClone(list.data)
+    }
+  }
+
+})
+export type ArticleListStore = ReturnType<typeof useArticleListStore>
 

@@ -14,7 +14,7 @@ import HomeRight from './components/HomeRight.vue';
       <el-col :span="4" class="grid-content left" />
       <el-divider direction="vertical" />
       <el-col :span="15" class="grid-content mid">
-        <RouterView/>
+          <router-view/>
       </el-col>
       <el-divider direction="vertical" />
       <el-col :span="4" class="grid-content right">
@@ -26,7 +26,7 @@ import HomeRight from './components/HomeRight.vue';
 
 <style lang="scss" scoped>
 .blank-top {
-  height: var(--header-height);
+  // height: var(--header-height);
 }
 
 @media (min-width: 1024px) {

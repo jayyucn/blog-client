@@ -6,8 +6,8 @@ export interface UniversalKeyValue {
   export interface Pagination {
     current_page: number
     total_page: number
-    per_page: number
-    total: number
+    page_size: number
+    total_count: number
   }
   
   export interface PaginationList<D> {

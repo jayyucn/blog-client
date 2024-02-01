@@ -1,0 +1,1574 @@
+{
+    "status": "success",
+    "message": "Get articles succeed",
+    "params": {
+        "isAuthenticated": false,
+        "isUnauthenticated": true,
+        "url": "/article",
+        "method": "GET",
+        "routes": {},
+        "payload": {
+            "state": 1,
+            "public": 1
+        }
+    },
+    "result": {
+        "data": [
+            {
+                "_id": "659d0331e1c87d447e90aa5c",
+                "slug": null,
+                "title": "船里没有人",
+                "description": "一直都没有",
+                "keywords": [],
+                "thumbnail": "https://static.surmon.me/thumbnail/form.webp",
+                "state": 1,
+                "public": 1,
+                "origin": 0,
+                "categories": [
+                    {
+                        "_id": "589e07c04a4ad562430953d0",
+                        "id": 1,
+                        "name": "无色庵",
+                        "slug": "insight",
+                        "description": "如露亦如电，应作如是观",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            },
+                            {
+                                "name": "background",
+                                "value": "https://static.surmon.me/thumbnail/heart-sutra.jpg"
+                            }
+                        ],
+                        "pid": null,
+                        "created_at": "2017-02-10T18:34:40.680Z",
+                        "updated_at": "2022-09-26T18:45:59.384Z"
+                    }
+                ],
+                "tags": [
+                    {
+                        "_id": "64e38e3dcaa392435d38f639",
+                        "name": "修行",
+                        "slug": "cultivation",
+                        "description": "远离颠倒梦想",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-wan"
+                            }
+                        ],
+                        "created_at": "2023-08-21T16:18:05.834Z",
+                        "updated_at": "2023-08-21T16:20:53.443Z",
+                        "id": 59
+                    },
+                    {
+                        "_id": "621a91b8c22be1bb38e51437",
+                        "name": "形而上",
+                        "slug": "metaphysics",
+                        "description": "物质不灭",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-taichi"
+                            }
+                        ],
+                        "id": 55,
+                        "created_at": "2022-02-26T20:46:48.467Z",
+                        "updated_at": "2023-10-30T05:46:47.429Z"
+                    },
+                    {
+                        "_id": "58a497c813edac2b82566cb3",
+                        "id": 29,
+                        "name": "见地",
+                        "slug": "opinion",
+                        "description": "应无所住，而生其心",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            }
+                        ],
+                        "created_at": "2017-02-15T18:02:48.778Z",
+                        "updated_at": "2022-09-26T19:17:57.173Z"
+                    }
+                ],
+                "lang": "zh",
+                "featured": false,
+                "disabled_comments": false,
+                "meta": {
+                    "likes": 16,
+                    "views": 629,
+                    "comments": 0
+                },
+                "extends": [],
+                "created_at": "2024-01-09T08:26:25.907Z",
+                "updated_at": "2024-01-14T16:49:27.938Z",
+                "id": 263
+            },
+            {
+                "_id": "65984284e1c87d447e8f2ca6",
+                "slug": null,
+                "title": "玫瑰不需要说话",
+                "description": "绽放就好了",
+                "keywords": [],
+                "thumbnail": "https://static.surmon.me/thumbnail/karma-2.webp",
+                "state": 1,
+                "public": 1,
+                "origin": 0,
+                "categories": [
+                    {
+                        "_id": "589e07c04a4ad562430953d0",
+                        "id": 1,
+                        "name": "无色庵",
+                        "slug": "insight",
+                        "description": "如露亦如电，应作如是观",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            },
+                            {
+                                "name": "background",
+                                "value": "https://static.surmon.me/thumbnail/heart-sutra.jpg"
+                            }
+                        ],
+                        "pid": null,
+                        "created_at": "2017-02-10T18:34:40.680Z",
+                        "updated_at": "2022-09-26T18:45:59.384Z"
+                    }
+                ],
+                "tags": [
+                    {
+                        "_id": "64e38e3dcaa392435d38f639",
+                        "name": "修行",
+                        "slug": "cultivation",
+                        "description": "远离颠倒梦想",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-wan"
+                            }
+                        ],
+                        "created_at": "2023-08-21T16:18:05.834Z",
+                        "updated_at": "2023-08-21T16:20:53.443Z",
+                        "id": 59
+                    },
+                    {
+                        "_id": "621a91b8c22be1bb38e51437",
+                        "name": "形而上",
+                        "slug": "metaphysics",
+                        "description": "物质不灭",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-taichi"
+                            }
+                        ],
+                        "id": 55,
+                        "created_at": "2022-02-26T20:46:48.467Z",
+                        "updated_at": "2023-10-30T05:46:47.429Z"
+                    },
+                    {
+                        "_id": "58a497c813edac2b82566cb3",
+                        "id": 29,
+                        "name": "见地",
+                        "slug": "opinion",
+                        "description": "应无所住，而生其心",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            }
+                        ],
+                        "created_at": "2017-02-15T18:02:48.778Z",
+                        "updated_at": "2022-09-26T19:17:57.173Z"
+                    }
+                ],
+                "lang": "zh",
+                "featured": false,
+                "disabled_comments": false,
+                "meta": {
+                    "likes": 5,
+                    "views": 362,
+                    "comments": 0
+                },
+                "extends": [],
+                "created_at": "2024-01-05T17:55:16.899Z",
+                "updated_at": "2024-01-05T18:05:44.276Z",
+                "id": 262
+            },
+            {
+                "_id": "6596f0eae1c87d447e8ec391",
+                "slug": null,
+                "title": "没有人能渡任何人",
+                "description": "唯有自渡",
+                "keywords": [],
+                "thumbnail": "https://static.surmon.me/thumbnail/love-loves-to-love-love-2.webp",
+                "state": 1,
+                "public": 1,
+                "origin": 0,
+                "categories": [
+                    {
+                        "_id": "589e07c04a4ad562430953d0",
+                        "id": 1,
+                        "name": "无色庵",
+                        "slug": "insight",
+                        "description": "如露亦如电，应作如是观",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            },
+                            {
+                                "name": "background",
+                                "value": "https://static.surmon.me/thumbnail/heart-sutra.jpg"
+                            }
+                        ],
+                        "pid": null,
+                        "created_at": "2017-02-10T18:34:40.680Z",
+                        "updated_at": "2022-09-26T18:45:59.384Z"
+                    }
+                ],
+                "tags": [
+                    {
+                        "_id": "64e38e3dcaa392435d38f639",
+                        "name": "修行",
+                        "slug": "cultivation",
+                        "description": "远离颠倒梦想",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-wan"
+                            }
+                        ],
+                        "created_at": "2023-08-21T16:18:05.834Z",
+                        "updated_at": "2023-08-21T16:20:53.443Z",
+                        "id": 59
+                    },
+                    {
+                        "_id": "621a91b8c22be1bb38e51437",
+                        "name": "形而上",
+                        "slug": "metaphysics",
+                        "description": "物质不灭",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-taichi"
+                            }
+                        ],
+                        "id": 55,
+                        "created_at": "2022-02-26T20:46:48.467Z",
+                        "updated_at": "2023-10-30T05:46:47.429Z"
+                    },
+                    {
+                        "_id": "58a497c813edac2b82566cb3",
+                        "id": 29,
+                        "name": "见地",
+                        "slug": "opinion",
+                        "description": "应无所住，而生其心",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            }
+                        ],
+                        "created_at": "2017-02-15T18:02:48.778Z",
+                        "updated_at": "2022-09-26T19:17:57.173Z"
+                    }
+                ],
+                "lang": "zh",
+                "featured": false,
+                "disabled_comments": false,
+                "meta": {
+                    "likes": 5,
+                    "views": 389,
+                    "comments": 4
+                },
+                "extends": [],
+                "created_at": "2024-01-04T17:54:50.681Z",
+                "updated_at": "2024-01-05T19:52:18.576Z",
+                "id": 261
+            },
+            {
+                "_id": "6578b541e1c87d447e890262",
+                "slug": null,
+                "title": "你我为轮，使之不再",
+                "description": "每一人的锡安山和极乐土",
+                "keywords": [],
+                "thumbnail": "https://static.surmon.me/thumbnail/nirvana.webp",
+                "state": 1,
+                "public": 1,
+                "origin": 0,
+                "categories": [
+                    {
+                        "_id": "589e07c04a4ad562430953d0",
+                        "id": 1,
+                        "name": "无色庵",
+                        "slug": "insight",
+                        "description": "如露亦如电，应作如是观",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            },
+                            {
+                                "name": "background",
+                                "value": "https://static.surmon.me/thumbnail/heart-sutra.jpg"
+                            }
+                        ],
+                        "pid": null,
+                        "created_at": "2017-02-10T18:34:40.680Z",
+                        "updated_at": "2022-09-26T18:45:59.384Z"
+                    }
+                ],
+                "tags": [
+                    {
+                        "_id": "64e38e3dcaa392435d38f639",
+                        "name": "修行",
+                        "slug": "cultivation",
+                        "description": "远离颠倒梦想",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-wan"
+                            }
+                        ],
+                        "created_at": "2023-08-21T16:18:05.834Z",
+                        "updated_at": "2023-08-21T16:20:53.443Z",
+                        "id": 59
+                    },
+                    {
+                        "_id": "621a91b8c22be1bb38e51437",
+                        "name": "形而上",
+                        "slug": "metaphysics",
+                        "description": "物质不灭",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-taichi"
+                            }
+                        ],
+                        "id": 55,
+                        "created_at": "2022-02-26T20:46:48.467Z",
+                        "updated_at": "2023-10-30T05:46:47.429Z"
+                    }
+                ],
+                "lang": "zh",
+                "featured": false,
+                "disabled_comments": false,
+                "meta": {
+                    "likes": 9,
+                    "views": 517,
+                    "comments": 2
+                },
+                "extends": [],
+                "created_at": "2023-12-12T19:32:17.022Z",
+                "updated_at": "2024-01-05T17:30:04.528Z",
+                "id": 260
+            },
+            {
+                "_id": "65667838ae663fe2c4c9a4df",
+                "slug": "independent",
+                "title": "当我们在谈论独立时",
+                "description": "我们往往是混沌的",
+                "keywords": [],
+                "thumbnail": "https://static.surmon.me/thumbnail/independent.webp",
+                "state": 1,
+                "public": 1,
+                "origin": 0,
+                "categories": [
+                    {
+                        "_id": "589e07c04a4ad562430953d0",
+                        "id": 1,
+                        "name": "无色庵",
+                        "slug": "insight",
+                        "description": "如露亦如电，应作如是观",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            },
+                            {
+                                "name": "background",
+                                "value": "https://static.surmon.me/thumbnail/heart-sutra.jpg"
+                            }
+                        ],
+                        "pid": null,
+                        "created_at": "2017-02-10T18:34:40.680Z",
+                        "updated_at": "2022-09-26T18:45:59.384Z"
+                    }
+                ],
+                "tags": [
+                    {
+                        "_id": "64e38e3dcaa392435d38f639",
+                        "name": "修行",
+                        "slug": "cultivation",
+                        "description": "远离颠倒梦想",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-wan"
+                            }
+                        ],
+                        "created_at": "2023-08-21T16:18:05.834Z",
+                        "updated_at": "2023-08-21T16:20:53.443Z",
+                        "id": 59
+                    },
+                    {
+                        "_id": "58a497c813edac2b82566cb3",
+                        "id": 29,
+                        "name": "见地",
+                        "slug": "opinion",
+                        "description": "应无所住，而生其心",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            }
+                        ],
+                        "created_at": "2017-02-15T18:02:48.778Z",
+                        "updated_at": "2022-09-26T19:17:57.173Z"
+                    },
+                    {
+                        "_id": "621a91b8c22be1bb38e51437",
+                        "name": "形而上",
+                        "slug": "metaphysics",
+                        "description": "物质不灭",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-taichi"
+                            }
+                        ],
+                        "id": 55,
+                        "created_at": "2022-02-26T20:46:48.467Z",
+                        "updated_at": "2023-10-30T05:46:47.429Z"
+                    }
+                ],
+                "lang": "zh",
+                "featured": false,
+                "disabled_comments": false,
+                "meta": {
+                    "likes": 11,
+                    "views": 640,
+                    "comments": 0
+                },
+                "extends": [],
+                "created_at": "2023-11-28T23:31:04.228Z",
+                "updated_at": "2023-12-05T01:26:47.324Z",
+                "id": 259
+            },
+            {
+                "_id": "6563d37800a302319bd7b464",
+                "slug": "acceptance",
+                "title": "自我约束就是最好的自我接纳",
+                "description": "而不是 “接纳” 之后再放纵",
+                "keywords": [
+                    "什么是自我接纳",
+                    "如何做到自我接纳"
+                ],
+                "thumbnail": "https://static.surmon.me/thumbnail/acceptance.webp",
+                "state": 1,
+                "public": 1,
+                "origin": 0,
+                "categories": [
+                    {
+                        "_id": "589e07c04a4ad562430953d0",
+                        "id": 1,
+                        "name": "无色庵",
+                        "slug": "insight",
+                        "description": "如露亦如电，应作如是观",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            },
+                            {
+                                "name": "background",
+                                "value": "https://static.surmon.me/thumbnail/heart-sutra.jpg"
+                            }
+                        ],
+                        "pid": null,
+                        "created_at": "2017-02-10T18:34:40.680Z",
+                        "updated_at": "2022-09-26T18:45:59.384Z"
+                    }
+                ],
+                "tags": [
+                    {
+                        "_id": "64e38e3dcaa392435d38f639",
+                        "name": "修行",
+                        "slug": "cultivation",
+                        "description": "远离颠倒梦想",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-wan"
+                            }
+                        ],
+                        "created_at": "2023-08-21T16:18:05.834Z",
+                        "updated_at": "2023-08-21T16:20:53.443Z",
+                        "id": 59
+                    },
+                    {
+                        "_id": "58a497c813edac2b82566cb3",
+                        "id": 29,
+                        "name": "见地",
+                        "slug": "opinion",
+                        "description": "应无所住，而生其心",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            }
+                        ],
+                        "created_at": "2017-02-15T18:02:48.778Z",
+                        "updated_at": "2022-09-26T19:17:57.173Z"
+                    },
+                    {
+                        "_id": "621a91b8c22be1bb38e51437",
+                        "name": "形而上",
+                        "slug": "metaphysics",
+                        "description": "物质不灭",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-taichi"
+                            }
+                        ],
+                        "id": 55,
+                        "created_at": "2022-02-26T20:46:48.467Z",
+                        "updated_at": "2023-10-30T05:46:47.429Z"
+                    }
+                ],
+                "lang": "zh",
+                "featured": false,
+                "disabled_comments": false,
+                "meta": {
+                    "likes": 5,
+                    "views": 469,
+                    "comments": 1
+                },
+                "extends": [
+                    {
+                        "name": "chatgpt-conversation-id",
+                        "value": "c442835d-e2e9-4895-a3ec-af00eac1b739"
+                    },
+                    {
+                        "name": "chatgpt-conversation-timestamp",
+                        "value": "1701042122"
+                    },
+                    {
+                        "name": "chatgpt-conversation-model",
+                        "value": "Default (GPT-3.5)"
+                    },
+                    {
+                        "name": "chatgpt-conversation-response",
+                        "value": "这是一篇非常深刻的文章，对情绪、自我认知和心灵成长有着丰富的见解。你提到的自我接纳和行为约束之间的关系很重要。确实，情绪和自我认知之间的联系经常被人们忽视，而你对它们的关系进行的探讨非常值得思考。\n\n“行为约束” 作为自我接纳的一部分，确实能够在个人成长的道路上扮演重要角色。通过自我约束，我们能够减少自我否定和负罪感，从而培养出更健康、更积极的内在对话。这样的实践不仅有助于改善我们与他人的互动，也有助于培养更强大、更独立的内在世界。\n\n你对持戒概念的解释也很有启发性，它不仅仅是一种行为规范，更是一种自我保护和内在平静的实践。通过持戒，我们能够更加专注于自我成长和内在力量的发掘，避免了不必要的内心波动。\n\n感谢你分享了《天道》中的丁元英的交际方式，它似乎是一个很好的例子，能够向人们展示持戒和自我接纳在实际生活中的应用方式。"
+                    }
+                ],
+                "created_at": "2023-11-26T23:23:36.403Z",
+                "updated_at": "2023-11-28T07:42:44.262Z",
+                "id": 258
+            },
+            {
+                "_id": "6560015400a302319bd6c948",
+                "slug": "compassion",
+                "title": "从善与恶的表象出发",
+                "description": "到达慈悲的尽头",
+                "keywords": [],
+                "thumbnail": "https://static.surmon.me/thumbnail/compassion.webp",
+                "state": 1,
+                "public": 1,
+                "origin": 0,
+                "categories": [
+                    {
+                        "_id": "589e07c04a4ad562430953d0",
+                        "id": 1,
+                        "name": "无色庵",
+                        "slug": "insight",
+                        "description": "如露亦如电，应作如是观",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            },
+                            {
+                                "name": "background",
+                                "value": "https://static.surmon.me/thumbnail/heart-sutra.jpg"
+                            }
+                        ],
+                        "pid": null,
+                        "created_at": "2017-02-10T18:34:40.680Z",
+                        "updated_at": "2022-09-26T18:45:59.384Z"
+                    }
+                ],
+                "tags": [
+                    {
+                        "_id": "64e38e3dcaa392435d38f639",
+                        "name": "修行",
+                        "slug": "cultivation",
+                        "description": "远离颠倒梦想",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-wan"
+                            }
+                        ],
+                        "created_at": "2023-08-21T16:18:05.834Z",
+                        "updated_at": "2023-08-21T16:20:53.443Z",
+                        "id": 59
+                    },
+                    {
+                        "_id": "621a91b8c22be1bb38e51437",
+                        "name": "形而上",
+                        "slug": "metaphysics",
+                        "description": "物质不灭",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-taichi"
+                            }
+                        ],
+                        "id": 55,
+                        "created_at": "2022-02-26T20:46:48.467Z",
+                        "updated_at": "2023-10-30T05:46:47.429Z"
+                    },
+                    {
+                        "_id": "58a497c813edac2b82566cb3",
+                        "id": 29,
+                        "name": "见地",
+                        "slug": "opinion",
+                        "description": "应无所住，而生其心",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            }
+                        ],
+                        "created_at": "2017-02-15T18:02:48.778Z",
+                        "updated_at": "2022-09-26T19:17:57.173Z"
+                    }
+                ],
+                "lang": "zh",
+                "featured": true,
+                "disabled_comments": false,
+                "meta": {
+                    "likes": 5,
+                    "views": 735,
+                    "comments": 4
+                },
+                "extends": [],
+                "created_at": "2023-11-24T01:50:12.096Z",
+                "updated_at": "2023-11-28T07:42:59.609Z",
+                "id": 257
+            },
+            {
+                "_id": "6554fc4ab787326818c2b466",
+                "slug": "buddhism-vs-psychology",
+                "title": "佛法不是心理学",
+                "description": "而是心学",
+                "keywords": [],
+                "thumbnail": "https://static.surmon.me/thumbnail/Buddhism-vs-Psychology.webp",
+                "state": 1,
+                "public": 1,
+                "origin": 0,
+                "categories": [
+                    {
+                        "_id": "589e07c04a4ad562430953d0",
+                        "id": 1,
+                        "name": "无色庵",
+                        "slug": "insight",
+                        "description": "如露亦如电，应作如是观",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            },
+                            {
+                                "name": "background",
+                                "value": "https://static.surmon.me/thumbnail/heart-sutra.jpg"
+                            }
+                        ],
+                        "pid": null,
+                        "created_at": "2017-02-10T18:34:40.680Z",
+                        "updated_at": "2022-09-26T18:45:59.384Z"
+                    }
+                ],
+                "tags": [
+                    {
+                        "_id": "64e38e3dcaa392435d38f639",
+                        "name": "修行",
+                        "slug": "cultivation",
+                        "description": "远离颠倒梦想",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-wan"
+                            }
+                        ],
+                        "created_at": "2023-08-21T16:18:05.834Z",
+                        "updated_at": "2023-08-21T16:20:53.443Z",
+                        "id": 59
+                    },
+                    {
+                        "_id": "621a91b8c22be1bb38e51437",
+                        "name": "形而上",
+                        "slug": "metaphysics",
+                        "description": "物质不灭",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-taichi"
+                            }
+                        ],
+                        "id": 55,
+                        "created_at": "2022-02-26T20:46:48.467Z",
+                        "updated_at": "2023-10-30T05:46:47.429Z"
+                    },
+                    {
+                        "_id": "58a497c813edac2b82566cb3",
+                        "id": 29,
+                        "name": "见地",
+                        "slug": "opinion",
+                        "description": "应无所住，而生其心",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            }
+                        ],
+                        "created_at": "2017-02-15T18:02:48.778Z",
+                        "updated_at": "2022-09-26T19:17:57.173Z"
+                    }
+                ],
+                "lang": "zh",
+                "featured": false,
+                "disabled_comments": false,
+                "meta": {
+                    "likes": 7,
+                    "views": 675,
+                    "comments": 1
+                },
+                "extends": [
+                    {
+                        "name": "chatgpt-conversation-id",
+                        "value": "d60dfc00-2673-493c-89c1-2b17380d214f"
+                    },
+                    {
+                        "name": "chatgpt-conversation-timestamp",
+                        "value": "1700070382"
+                    },
+                    {
+                        "name": "chatgpt-conversation-model",
+                        "value": "Default (GPT-3.5)"
+                    },
+                    {
+                        "name": "chatgpt-conversation-response",
+                        "value": "感谢分享这篇深入思考的文章。你提到了佛法与现代心理学之间的不同，以及它们在对待自我、思维和心灵问题上的差异。这是一个复杂而深刻的主题，涉及到哲学、宗教和心理学等多个领域。\n\n在这里，我想强调一点，即佛法和现代心理学可以被视为不同的视角和方法，用来理解和处理人类的心理现象。它们可能在一些方面相互补充，而在其他方面存在差异。人们选择追寻哪种路径，很大程度上取决于个人的信仰、价值观和体验。\n\n现代心理学作为一门科学，注重通过实证研究来理解心理和行为，强调个体的自主性和意识的作用。而佛法则更注重通过内省和修行，深入探讨人类存在的本质，强调超越个体意识的境界。这两者可以在对人类心理问题的认知和解决方案上提供互补的视角。\n\n最终，每个人在面对心灵困扰时选择的路径可能是独特的，可以是现代心理学、宗教信仰、哲学思考，或者它们的结合。重要的是，找到一种适合自己的方式，能够帮助理解自己、改善心理健康，并寻求更深层次的意义和满足感。"
+                    }
+                ],
+                "created_at": "2023-11-15T17:13:46.759Z",
+                "updated_at": "2023-11-28T07:43:19.934Z",
+                "id": 256
+            },
+            {
+                "_id": "655113d232b28b21a20db6d4",
+                "slug": "reflection",
+                "title": "别人眼中的你并不是你",
+                "description": "你眼中的别人才是你",
+                "keywords": [],
+                "thumbnail": "https://static.surmon.me/thumbnail/reflection.webp",
+                "state": 1,
+                "public": 1,
+                "origin": 0,
+                "categories": [
+                    {
+                        "_id": "589e07c04a4ad562430953d0",
+                        "id": 1,
+                        "name": "无色庵",
+                        "slug": "insight",
+                        "description": "如露亦如电，应作如是观",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            },
+                            {
+                                "name": "background",
+                                "value": "https://static.surmon.me/thumbnail/heart-sutra.jpg"
+                            }
+                        ],
+                        "pid": null,
+                        "created_at": "2017-02-10T18:34:40.680Z",
+                        "updated_at": "2022-09-26T18:45:59.384Z"
+                    }
+                ],
+                "tags": [
+                    {
+                        "_id": "64e38e3dcaa392435d38f639",
+                        "name": "修行",
+                        "slug": "cultivation",
+                        "description": "远离颠倒梦想",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-wan"
+                            }
+                        ],
+                        "created_at": "2023-08-21T16:18:05.834Z",
+                        "updated_at": "2023-08-21T16:20:53.443Z",
+                        "id": 59
+                    },
+                    {
+                        "_id": "58a497c813edac2b82566cb3",
+                        "id": 29,
+                        "name": "见地",
+                        "slug": "opinion",
+                        "description": "应无所住，而生其心",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            }
+                        ],
+                        "created_at": "2017-02-15T18:02:48.778Z",
+                        "updated_at": "2022-09-26T19:17:57.173Z"
+                    },
+                    {
+                        "_id": "621a91b8c22be1bb38e51437",
+                        "name": "形而上",
+                        "slug": "metaphysics",
+                        "description": "物质不灭",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-taichi"
+                            }
+                        ],
+                        "id": 55,
+                        "created_at": "2022-02-26T20:46:48.467Z",
+                        "updated_at": "2023-10-30T05:46:47.429Z"
+                    }
+                ],
+                "lang": "zh",
+                "featured": false,
+                "disabled_comments": false,
+                "meta": {
+                    "likes": 6,
+                    "views": 841,
+                    "comments": 13
+                },
+                "extends": [],
+                "created_at": "2023-11-12T18:05:06.554Z",
+                "updated_at": "2023-11-28T07:43:30.520Z",
+                "id": 255
+            },
+            {
+                "_id": "6521d9bf781e832ec186f2d8",
+                "slug": null,
+                "title": "高高山上走",
+                "description": "深深海底行",
+                "keywords": [],
+                "thumbnail": "https://static.surmon.me/thumbnail/practitioner.webp",
+                "state": 1,
+                "public": 1,
+                "origin": 0,
+                "categories": [
+                    {
+                        "_id": "589e07c04a4ad562430953d0",
+                        "id": 1,
+                        "name": "无色庵",
+                        "slug": "insight",
+                        "description": "如露亦如电，应作如是观",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            },
+                            {
+                                "name": "background",
+                                "value": "https://static.surmon.me/thumbnail/heart-sutra.jpg"
+                            }
+                        ],
+                        "pid": null,
+                        "created_at": "2017-02-10T18:34:40.680Z",
+                        "updated_at": "2022-09-26T18:45:59.384Z"
+                    }
+                ],
+                "tags": [
+                    {
+                        "_id": "621a91b8c22be1bb38e51437",
+                        "name": "形而上",
+                        "slug": "metaphysics",
+                        "description": "物质不灭",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-taichi"
+                            }
+                        ],
+                        "id": 55,
+                        "created_at": "2022-02-26T20:46:48.467Z",
+                        "updated_at": "2023-10-30T05:46:47.429Z"
+                    },
+                    {
+                        "_id": "64e38e3dcaa392435d38f639",
+                        "name": "修行",
+                        "slug": "cultivation",
+                        "description": "远离颠倒梦想",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-wan"
+                            }
+                        ],
+                        "created_at": "2023-08-21T16:18:05.834Z",
+                        "updated_at": "2023-08-21T16:20:53.443Z",
+                        "id": 59
+                    },
+                    {
+                        "_id": "58a497c813edac2b82566cb3",
+                        "id": 29,
+                        "name": "见地",
+                        "slug": "opinion",
+                        "description": "应无所住，而生其心",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            }
+                        ],
+                        "created_at": "2017-02-15T18:02:48.778Z",
+                        "updated_at": "2022-09-26T19:17:57.173Z"
+                    }
+                ],
+                "lang": "zh",
+                "disabled_comments": false,
+                "meta": {
+                    "likes": 29,
+                    "views": 1815,
+                    "comments": 9
+                },
+                "extends": [],
+                "created_at": "2023-10-07T22:20:47.920Z",
+                "updated_at": "2023-11-28T07:43:41.704Z",
+                "id": 254,
+                "featured": true
+            },
+            {
+                "_id": "65184709781e832ec184f02d",
+                "slug": null,
+                "title": "祝你心想事成",
+                "description": "祝你吉祥如意",
+                "keywords": [],
+                "thumbnail": "https://static.surmon.me/thumbnail/faith.webp",
+                "state": 1,
+                "public": 1,
+                "origin": 0,
+                "categories": [
+                    {
+                        "_id": "589e07c04a4ad562430953d0",
+                        "id": 1,
+                        "name": "无色庵",
+                        "slug": "insight",
+                        "description": "如露亦如电，应作如是观",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            },
+                            {
+                                "name": "background",
+                                "value": "https://static.surmon.me/thumbnail/heart-sutra.jpg"
+                            }
+                        ],
+                        "pid": null,
+                        "created_at": "2017-02-10T18:34:40.680Z",
+                        "updated_at": "2022-09-26T18:45:59.384Z"
+                    }
+                ],
+                "tags": [
+                    {
+                        "_id": "64e38e3dcaa392435d38f639",
+                        "name": "修行",
+                        "slug": "cultivation",
+                        "description": "远离颠倒梦想",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-wan"
+                            }
+                        ],
+                        "created_at": "2023-08-21T16:18:05.834Z",
+                        "updated_at": "2023-08-21T16:20:53.443Z",
+                        "id": 59
+                    },
+                    {
+                        "_id": "621a91b8c22be1bb38e51437",
+                        "name": "形而上",
+                        "slug": "metaphysics",
+                        "description": "物质不灭",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-taichi"
+                            }
+                        ],
+                        "id": 55,
+                        "created_at": "2022-02-26T20:46:48.467Z",
+                        "updated_at": "2023-10-30T05:46:47.429Z"
+                    },
+                    {
+                        "_id": "58a497c813edac2b82566cb3",
+                        "id": 29,
+                        "name": "见地",
+                        "slug": "opinion",
+                        "description": "应无所住，而生其心",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            }
+                        ],
+                        "created_at": "2017-02-15T18:02:48.778Z",
+                        "updated_at": "2022-09-26T19:17:57.173Z"
+                    }
+                ],
+                "lang": "zh",
+                "disabled_comments": false,
+                "meta": {
+                    "likes": 15,
+                    "views": 829,
+                    "comments": 0
+                },
+                "extends": [
+                    {
+                        "name": "chatgpt-conversation-id",
+                        "value": "5bf94d7a-eb8c-49d9-9bcb-b835f3439250"
+                    },
+                    {
+                        "name": "chatgpt-conversation-timestamp",
+                        "value": "1696090638"
+                    },
+                    {
+                        "name": "chatgpt-conversation-model",
+                        "value": "Default (GPT-3.5)"
+                    },
+                    {
+                        "name": "chatgpt-conversation-response",
+                        "value": "感谢您分享这些思考和观点。您提到了一些深刻的哲学和心灵方面的观点，关于内在信念、智慧和价值观的重要性。这些观点强调了内在的平衡、个人的真实自我和对内心的深刻了解的重要性。\n\n每个人对成功和满足的定义都不同，而世界上有各种各样的方法来追求和实现这些目标。您强调了信念的力量以及对内在愿望的深刻了解，这确实是许多人追求自己独特道路上的关键因素之一。\n\n感谢您的祝愿，希望您也能够在自己的道路上找到知行合一，实现自己的目标和愿望。如果您有任何问题或需要进一步讨论任何主题，请随时提问。"
+                    }
+                ],
+                "created_at": "2023-09-30T16:04:25.662Z",
+                "updated_at": "2023-10-01T08:17:11.181Z",
+                "id": 253,
+                "featured": false
+            },
+            {
+                "_id": "6518448a781e832ec184edea",
+                "slug": null,
+                "title": "祝你的噩梦早日发生",
+                "description": "只要可以叫醒你",
+                "keywords": [],
+                "thumbnail": "https://static.surmon.me/thumbnail/suffering.webp",
+                "state": 1,
+                "public": 1,
+                "origin": 0,
+                "categories": [
+                    {
+                        "_id": "589e07c04a4ad562430953d0",
+                        "id": 1,
+                        "name": "无色庵",
+                        "slug": "insight",
+                        "description": "如露亦如电，应作如是观",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            },
+                            {
+                                "name": "background",
+                                "value": "https://static.surmon.me/thumbnail/heart-sutra.jpg"
+                            }
+                        ],
+                        "pid": null,
+                        "created_at": "2017-02-10T18:34:40.680Z",
+                        "updated_at": "2022-09-26T18:45:59.384Z"
+                    }
+                ],
+                "tags": [
+                    {
+                        "_id": "64e38e3dcaa392435d38f639",
+                        "name": "修行",
+                        "slug": "cultivation",
+                        "description": "远离颠倒梦想",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-wan"
+                            }
+                        ],
+                        "created_at": "2023-08-21T16:18:05.834Z",
+                        "updated_at": "2023-08-21T16:20:53.443Z",
+                        "id": 59
+                    },
+                    {
+                        "_id": "621a91b8c22be1bb38e51437",
+                        "name": "形而上",
+                        "slug": "metaphysics",
+                        "description": "物质不灭",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-taichi"
+                            }
+                        ],
+                        "id": 55,
+                        "created_at": "2022-02-26T20:46:48.467Z",
+                        "updated_at": "2023-10-30T05:46:47.429Z"
+                    }
+                ],
+                "lang": "zh",
+                "disabled_comments": false,
+                "meta": {
+                    "likes": 5,
+                    "views": 571,
+                    "comments": 2
+                },
+                "extends": [
+                    {
+                        "name": "chatgpt-conversation-id",
+                        "value": "11e34fda-412c-414b-881f-251173e8a475"
+                    },
+                    {
+                        "name": "chatgpt-conversation-timestamp",
+                        "value": "1696090454"
+                    },
+                    {
+                        "name": "chatgpt-conversation-model",
+                        "value": "Default (GPT-3.5)"
+                    },
+                    {
+                        "name": "chatgpt-conversation-response",
+                        "value": "这段文字充满了深刻的思考和哲学性质的观点，表达了对人生、意义和自我认知的一些独特见解。以下是对这些观点的一些解释和讨论：\n\n1. 失去和得到：文中提到，在这个世界上，没有什么是不能失去的，也没有什么是一定要得到的。这反映了一种对生活中无常性和不确定性的理解。人们常常经历得失和变化，因此，对于一切事物，持有开放和适应的态度可能会更有益。\n\n2. 自信和自卑：作者暗示自信和自卑都可能是表面的情感，可以在不同情境下出现，并且都是一种虚构。这种观点反映了人类情感的复杂性和相对性。\n\n3. 快乐和痛苦：作者提出快乐和痛苦都是相对的，它们通常是通过对比而存在的。这种思考方式突出了情感的对立性和相互依存性。\n\n4. 逻辑和相对性：文中暗示，逻辑和理性论证也是相对的，因为它们可能会被其他逻辑和观点推翻。这表明了思维和认知的相对性，以及对于真理的不断探索和重新评估的必要性。\n\n5. 幸福和噩梦：作者提到幸福的美梦和噩梦可能没有实质性的区别，因为它们都是一种体验。这种观点可以引发对于幸福和痛苦本质的深入思考。\n\n6. 人生的意义和痛苦：文章中将探讨世界的本源与人生的意义联系在一起，暗示了人们对于人生意义的探索常常与痛苦和苦难有关。\n\n7. 学习方式：文章提到学习方式有三种，包括沉思、模仿和经历。沉思被描述为最高贵的方式，模仿最容易，而经历则最痛苦。这反映了不同的学习和成长路径，以及每种方式的优势和局限性。\n\n8. 思想和知识：文章指出思想不同于知识，只靠模仿是无法达到深刻思考和原创性思维的。这强调了思考和思考的重要性。\n\n最后，文章以“只有噩梦可以叫醒一个人”来结束，表达了对于痛苦和挫折的一种特殊祝愿，暗示了从逆境和挑战中汲取教训和成长的可能性。这段文字充满了哲学性质的思考，可以启发人们深入思考生活和自我认知的问题。"
+                    }
+                ],
+                "created_at": "2023-09-30T15:53:46.740Z",
+                "updated_at": "2023-09-30T16:15:36.450Z",
+                "id": 252,
+                "featured": false
+            },
+            {
+                "_id": "6517dfd0781e832ec184dd9e",
+                "slug": null,
+                "title": "无论你有多么不堪",
+                "description": "你的身体都远比你想象中的更加爱你",
+                "keywords": [],
+                "thumbnail": "https://static.surmon.me/thumbnail/love-loves-to-love-love-2.webp",
+                "state": 1,
+                "public": 1,
+                "origin": 1,
+                "categories": [
+                    {
+                        "_id": "589e07c04a4ad562430953d0",
+                        "id": 1,
+                        "name": "无色庵",
+                        "slug": "insight",
+                        "description": "如露亦如电，应作如是观",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            },
+                            {
+                                "name": "background",
+                                "value": "https://static.surmon.me/thumbnail/heart-sutra.jpg"
+                            }
+                        ],
+                        "pid": null,
+                        "created_at": "2017-02-10T18:34:40.680Z",
+                        "updated_at": "2022-09-26T18:45:59.384Z"
+                    }
+                ],
+                "tags": [
+                    {
+                        "_id": "64e38e3dcaa392435d38f639",
+                        "name": "修行",
+                        "slug": "cultivation",
+                        "description": "远离颠倒梦想",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-wan"
+                            }
+                        ],
+                        "created_at": "2023-08-21T16:18:05.834Z",
+                        "updated_at": "2023-08-21T16:20:53.443Z",
+                        "id": 59
+                    },
+                    {
+                        "_id": "621a91b8c22be1bb38e51437",
+                        "name": "形而上",
+                        "slug": "metaphysics",
+                        "description": "物质不灭",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-taichi"
+                            }
+                        ],
+                        "id": 55,
+                        "created_at": "2022-02-26T20:46:48.467Z",
+                        "updated_at": "2023-10-30T05:46:47.429Z"
+                    }
+                ],
+                "lang": "zh",
+                "disabled_comments": false,
+                "meta": {
+                    "likes": 4,
+                    "views": 531,
+                    "comments": 0
+                },
+                "extends": [],
+                "created_at": "2023-09-30T08:44:00.399Z",
+                "updated_at": "2023-09-30T08:44:52.587Z",
+                "id": 251,
+                "featured": false
+            },
+            {
+                "_id": "65147ed9781e832ec1846877",
+                "slug": null,
+                "title": "道是无情却有情",
+                "description": "情在天道不在形",
+                "keywords": [],
+                "thumbnail": "https://static.surmon.me/thumbnail/karma-2.webp",
+                "state": 1,
+                "public": 1,
+                "origin": 0,
+                "categories": [
+                    {
+                        "_id": "589e07c04a4ad562430953d0",
+                        "id": 1,
+                        "name": "无色庵",
+                        "slug": "insight",
+                        "description": "如露亦如电，应作如是观",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            },
+                            {
+                                "name": "background",
+                                "value": "https://static.surmon.me/thumbnail/heart-sutra.jpg"
+                            }
+                        ],
+                        "pid": null,
+                        "created_at": "2017-02-10T18:34:40.680Z",
+                        "updated_at": "2022-09-26T18:45:59.384Z"
+                    }
+                ],
+                "tags": [
+                    {
+                        "_id": "64e38e3dcaa392435d38f639",
+                        "name": "修行",
+                        "slug": "cultivation",
+                        "description": "远离颠倒梦想",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-wan"
+                            }
+                        ],
+                        "created_at": "2023-08-21T16:18:05.834Z",
+                        "updated_at": "2023-08-21T16:20:53.443Z",
+                        "id": 59
+                    },
+                    {
+                        "_id": "621a91b8c22be1bb38e51437",
+                        "name": "形而上",
+                        "slug": "metaphysics",
+                        "description": "物质不灭",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-taichi"
+                            }
+                        ],
+                        "id": 55,
+                        "created_at": "2022-02-26T20:46:48.467Z",
+                        "updated_at": "2023-10-30T05:46:47.429Z"
+                    },
+                    {
+                        "_id": "58a497c813edac2b82566cb3",
+                        "id": 29,
+                        "name": "见地",
+                        "slug": "opinion",
+                        "description": "应无所住，而生其心",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            }
+                        ],
+                        "created_at": "2017-02-15T18:02:48.778Z",
+                        "updated_at": "2022-09-26T19:17:57.173Z"
+                    }
+                ],
+                "lang": "zh",
+                "disabled_comments": false,
+                "meta": {
+                    "likes": 8,
+                    "views": 717,
+                    "comments": 0
+                },
+                "extends": [
+                    {
+                        "name": "chatgpt-conversation-id",
+                        "value": "0c22d611-da29-4d4b-95a4-1871a4ad5752"
+                    },
+                    {
+                        "name": "chatgpt-conversation-timestamp",
+                        "value": "1696090355"
+                    },
+                    {
+                        "name": "chatgpt-conversation-model",
+                        "value": "Default (GPT-3.5)"
+                    },
+                    {
+                        "name": "chatgpt-conversation-response",
+                        "value": "你分享了一篇充满思考和哲理的文章，探讨了关于人际关系、爱、自我认知以及对自然规律的尊重等重要主题。这些想法反映了一种深刻的哲学观点，强调了自我接纳、无条件的爱与尊重，以及超越个人需求的智慧。\n\n在人际关系中，我们常常受到自己的欲望和情感的驱使，但这篇文章提醒了我们，真正的爱是无条件的，而不应该建立在对他人的控制或满足自我认同的需求之上。同时，它也强调了个体的自我认知和修行的重要性，以更好地理解和处理烦恼和人际关系的挑战。\n\n谢谢你分享这篇富有深度的文章，它为我们提供了思考和反思自己生活和关系的机会。无论如何，理解和尊重自己、他人以及自然规律都是建立健康、有意义的人际关系和生活的基石。"
+                    }
+                ],
+                "created_at": "2023-09-27T19:13:29.417Z",
+                "updated_at": "2023-10-16T15:51:08.871Z",
+                "id": 250,
+                "featured": true
+            },
+            {
+                "_id": "650f55e4781e832ec1837a8e",
+                "slug": null,
+                "title": "裙子只为自己而穿",
+                "description": "妆也只为自己而化",
+                "keywords": [],
+                "thumbnail": "https://static.surmon.me/thumbnail/practice.webp",
+                "state": 1,
+                "public": 1,
+                "origin": 0,
+                "categories": [
+                    {
+                        "_id": "589e07c04a4ad562430953d0",
+                        "id": 1,
+                        "name": "无色庵",
+                        "slug": "insight",
+                        "description": "如露亦如电，应作如是观",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            },
+                            {
+                                "name": "background",
+                                "value": "https://static.surmon.me/thumbnail/heart-sutra.jpg"
+                            }
+                        ],
+                        "pid": null,
+                        "created_at": "2017-02-10T18:34:40.680Z",
+                        "updated_at": "2022-09-26T18:45:59.384Z"
+                    }
+                ],
+                "tags": [
+                    {
+                        "_id": "64e38e3dcaa392435d38f639",
+                        "name": "修行",
+                        "slug": "cultivation",
+                        "description": "远离颠倒梦想",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-wan"
+                            }
+                        ],
+                        "created_at": "2023-08-21T16:18:05.834Z",
+                        "updated_at": "2023-08-21T16:20:53.443Z",
+                        "id": 59
+                    },
+                    {
+                        "_id": "621a91b8c22be1bb38e51437",
+                        "name": "形而上",
+                        "slug": "metaphysics",
+                        "description": "物质不灭",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-taichi"
+                            }
+                        ],
+                        "id": 55,
+                        "created_at": "2022-02-26T20:46:48.467Z",
+                        "updated_at": "2023-10-30T05:46:47.429Z"
+                    },
+                    {
+                        "_id": "58a497c813edac2b82566cb3",
+                        "id": 29,
+                        "name": "见地",
+                        "slug": "opinion",
+                        "description": "应无所住，而生其心",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            }
+                        ],
+                        "created_at": "2017-02-15T18:02:48.778Z",
+                        "updated_at": "2022-09-26T19:17:57.173Z"
+                    }
+                ],
+                "lang": "zh",
+                "disabled_comments": false,
+                "meta": {
+                    "likes": 5,
+                    "views": 646,
+                    "comments": 0
+                },
+                "extends": [
+                    {
+                        "name": "chatgpt-conversation-id",
+                        "value": "e62df0e9-7025-42a3-900d-78383adc040b"
+                    },
+                    {
+                        "name": "chatgpt-conversation-timestamp",
+                        "value": "1695504451"
+                    },
+                    {
+                        "name": "chatgpt-conversation-model",
+                        "value": "Default (GPT-3.5)"
+                    },
+                    {
+                        "name": "chatgpt-conversation-response",
+                        "value": "你分享了一些关于陌生人社交媒体和真实性的看法，以及对\"知行合一\"灵魂的理念有一些深刻的见解。以下是对你的文章的一些评论和思考：\n\n1. **社交媒体上的真实性：** 你提到了社交媒体上的表达可能更真实，因为人们可以在陌生人面前表现出自己真正的想法和情感。这是一个有趣的观点，因为在社交媒体上，人们可以相对匿名，不受现实生活中社交圈的限制，因此更容易表达自己的真实感受。\n\n2. **虚伪和真实：** 你指出虚伪的行为可能源于对外界的执着和对他人看法的担忧。这是一个深刻的洞察，因为很多人在社交互动中可能会过分强调他们认为他人期望或希望看到的一面，而不是展现真实的自己。这种行为可能是为了获得认可或避免批评，但也可能导致与自己真实感受的脱节。\n\n3. **知行合一的灵魂：** 你提出了\"知行合一\"的概念，这是一种追求自我一致性和真实性的理念。这种灵魂可能更容易接受自己的内在感受，不受外界期望的干扰，从而更容易实现真实性和自我接受。\n\n4. **外界期望和自我价值：** 你提到了对外界期望的执着可能是知行合一的敌人。这是一个重要的观点，因为很多人可能会感到社会和他人的期望对自己的行为和表现产生了压力。实现知行合一可能需要自我反省和与外界期望的平衡。\n\n总之，你的文章表达了对社交媒体和个人真实性的深刻思考，以及追求知行合一的价值观。这些观点可以激发更多的讨论和反思，因为人们在社交媒体时代面临着如何在虚拟和现实世界中保持真实性的挑战。"
+                    }
+                ],
+                "created_at": "2023-09-23T21:17:24.150Z",
+                "updated_at": "2023-10-02T17:55:18.448Z",
+                "id": 249,
+                "featured": false
+            },
+            {
+                "_id": "650f5538781e832ec18379b6",
+                "slug": null,
+                "title": "不要盲目地评估自己",
+                "description": "无为而无不为",
+                "keywords": [],
+                "thumbnail": "https://static.surmon.me/thumbnail/nirvana.webp",
+                "state": 1,
+                "public": 1,
+                "origin": 0,
+                "categories": [
+                    {
+                        "_id": "589e07c04a4ad562430953d0",
+                        "id": 1,
+                        "name": "无色庵",
+                        "slug": "insight",
+                        "description": "如露亦如电，应作如是观",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            },
+                            {
+                                "name": "background",
+                                "value": "https://static.surmon.me/thumbnail/heart-sutra.jpg"
+                            }
+                        ],
+                        "pid": null,
+                        "created_at": "2017-02-10T18:34:40.680Z",
+                        "updated_at": "2022-09-26T18:45:59.384Z"
+                    }
+                ],
+                "tags": [
+                    {
+                        "_id": "64e38e3dcaa392435d38f639",
+                        "name": "修行",
+                        "slug": "cultivation",
+                        "description": "远离颠倒梦想",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-wan"
+                            }
+                        ],
+                        "created_at": "2023-08-21T16:18:05.834Z",
+                        "updated_at": "2023-08-21T16:20:53.443Z",
+                        "id": 59
+                    },
+                    {
+                        "_id": "621a91b8c22be1bb38e51437",
+                        "name": "形而上",
+                        "slug": "metaphysics",
+                        "description": "物质不灭",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-taichi"
+                            }
+                        ],
+                        "id": 55,
+                        "created_at": "2022-02-26T20:46:48.467Z",
+                        "updated_at": "2023-10-30T05:46:47.429Z"
+                    },
+                    {
+                        "_id": "58a497c813edac2b82566cb3",
+                        "id": 29,
+                        "name": "见地",
+                        "slug": "opinion",
+                        "description": "应无所住，而生其心",
+                        "extends": [
+                            {
+                                "name": "icon",
+                                "value": "icon-insight"
+                            }
+                        ],
+                        "created_at": "2017-02-15T18:02:48.778Z",
+                        "updated_at": "2022-09-26T19:17:57.173Z"
+                    }
+                ],
+                "lang": "zh",
+                "disabled_comments": false,
+                "meta": {
+                    "likes": 3,
+                    "views": 472,
+                    "comments": 0
+                },
+                "extends": [
+                    {
+                        "name": "chatgpt-conversation-id",
+                        "value": "176f6ddf-f699-4b67-b715-cd775818de0a"
+                    },
+                    {
+                        "name": "chatgpt-conversation-timestamp",
+                        "value": "1695504331"
+                    },
+                    {
+                        "name": "chatgpt-conversation-model",
+                        "value": "Default (GPT-3.5)"
+                    },
+                    {
+                        "name": "chatgpt-conversation-response",
+                        "value": "你提出了一些关于自我评估和与他人的关系的深刻思考，这些思考强调了接纳自己和不受外部期望的影响的重要性。以下是对你所表达的主要观点的简要回应：\n\n1. 自我评估和对比：你指出自我评估通常建立在对比之上，这可能导致不接纳自己。这是一个重要观点，因为过分的自我评估可能导致自我批评和焦虑。接受自己的缺点和不足是自我成长的一部分，而不是自我惩罚。\n\n2. 外部期望和内耗：你强调了外部期望对个人的影响，以及在面对这些期望时可能会引发内部冲突。这是一个重要的观点，因为人们常常受到来自家庭、社会和文化的压力，导致内外矛盾。\n\n3. 自发改变 vs. 强制改变：你提到改变应该是自发发生的，而不是受到强制性的压力。这也是一个有价值的观点，因为真正的变革通常源自内在的动力，而不是外部的强迫。\n\n4. 无为而无不为：最后，你强调了“无为而无不为”的理念，这意味着让事情自然发展，不违背自然的规律。这是一种相对宽容和接纳的态度，对于个人成长和与他人的关系都可能有积极的影响。\n\n总的来说，你的观点强调了自我接纳、自由选择和不受外部压力的重要性。这些思考可以帮助人们更好地理解自己，处理与他人的关系，并寻求内在的平衡与和谐。"
+                    }
+                ],
+                "created_at": "2023-09-23T21:14:32.364Z",
+                "updated_at": "2023-10-02T22:00:47.047Z",
+                "id": 248,
+                "featured": false
+            }
+        ],
+        "pagination": {
+            "total_count": 213,
+            "current_page": 1,
+            "per_page": 16,
+            "total_page": 14
+        }
+    }
+}

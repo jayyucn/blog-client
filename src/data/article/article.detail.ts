@@ -41,3 +41,5 @@ export default interface ArticleDetail {
   // 文章扩展信息
   extends: UniversalKeyValue[]
 }
+
+

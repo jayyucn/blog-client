@@ -16,12 +16,17 @@ interface RequestInterceptors<T> {
   responseInterceptorsCatch?: (err: any) => any
 }
 
+export enum ResponseStatus {
+  Error = 'error',
+  Success = 'success'
+}
+
 interface RequestConfig<T = AxiosResponse> extends AxiosRequestConfig {
   interceptors?: RequestInterceptors<T>
 }
 
 interface IResponse<T = any> {
-  code: number
+  status: ResponseStatus
   result: T extends any ? T : T & any
 }
 
