@@ -1,16 +1,15 @@
 import './assets/main.css'
 
-import { createApp } from 'vue'
 import App from './App.vue'
 
 import { setupGlobalComponents } from '@/components/index'
 import { setupI18n } from '@/i18n'
 import { setupStore } from '@/stores'
+import ElementPlus from 'element-plus'
+import { createApp } from 'vue'
 import API from './net/api'
-import { setupElementPlus } from './plugins/elementPlus'
 import { setupMarkdown } from './plugins/v-md-editor'
 import { setupRouter } from './router'
-
 
 const setupAll = async () => {
   const app = createApp(App)
@@ -22,7 +21,8 @@ const setupAll = async () => {
   setupGlobalComponents(app)
   setupMarkdown(app)
   //初始化element plus
-  setupElementPlus(app)
+  app.use(ElementPlus)
+  // setupElementPlus(app)
   //路由模块
   setupRouter(app)
 

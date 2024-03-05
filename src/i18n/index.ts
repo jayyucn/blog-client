@@ -13,7 +13,7 @@ const createI18nOptions = async (): Promise<I18nOptions> => {
   const localeStore = Store.localeStore
   const locale = localeStore.getCurrentLocale
   const localeMap = localeStore.getLocaleMap
-  const defaultLocal = await import(/* @vite-ignore */`./locales/${locale.lang}.json`)
+  const defaultLocal = await import(`./locales/${locale.lang}.json`)
   const message = defaultLocal.default ?? {}
   setHtmlPageLang(locale.lang)
   localeStore.setCurrentLocale({

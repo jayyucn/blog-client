@@ -8,6 +8,7 @@ export default interface ArticleDetail {
   _id: Object 
   // 文章自增id
   id: number
+  author: string
   // 文章标题
   title: string
   // 文章描述

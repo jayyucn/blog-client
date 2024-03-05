@@ -1,13 +1,14 @@
 import axios, { AxiosError } from 'axios'
 import { ElMessage } from 'element-plus'
 import qs from 'qs'
-import { PATH_URL, TRANSFORM_REQUEST_DATA } from './config'
+import { TRANSFORM_REQUEST_DATA } from './config'
 import { ResponseStatus, type AxiosInstance, type AxiosResponse, type InternalAxiosRequestConfig, type RequestConfig } from './types'
 
 
 const abortControllerMap: Map<string, AbortController> = new Map()
-let baseUrl = PATH_URL
-baseUrl.startsWith('http://') ? baseUrl : baseUrl = 'http://' + baseUrl
+let baseUrl = 'api.jayyu.cn';//PATH_URL
+// baseUrl.startsWith('http://') ? baseUrl : baseUrl = 'http://' + baseUrl
+baseUrl.startsWith('https://') ? baseUrl : baseUrl = 'https://' + baseUrl
 const axiosInstance: AxiosInstance = axios.create({
   timeout: 600000,// REQUEST_TIMEOUT,
   baseURL: baseUrl

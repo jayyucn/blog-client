@@ -15,6 +15,7 @@ export const useArticleDetailStore = defineStore('articleDetail', {
       article: {
         _id: null,
         id: 0,
+        author: '',
         title: '',
         description: '',
         keywords: [],
@@ -40,6 +41,20 @@ export const useArticleDetailStore = defineStore('articleDetail', {
     getArticle(): ArticleDetail {
       return this.article
     },
+    getTitle(): string {
+      return this.article.title
+    },
+
+    getAuthor(): string {
+      return this.article.author
+    },
+    getUpdatedAt(): string {
+      return this.article.updated_at
+    },
+    getCreateAt(): string {
+      return this.article.created_at
+    },
+    
     getContent(): string {
       return this.article.content
     }

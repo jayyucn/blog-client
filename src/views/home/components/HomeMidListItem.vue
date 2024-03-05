@@ -10,7 +10,7 @@ defineProps<{
 <template>
     <el-row class="list-item-row">
         <el-col class="card" :span="10">
-            <img height="150px" width="300px" :src="article.thumbnail" class="image" />
+            <img  height="150px" width="300px" :src="article.thumbnail" class="image" />
             <el-col>
                 <router-link class="link" :to="getArticleDetailRoute(article.id)">
                     <div>

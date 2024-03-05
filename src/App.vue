@@ -7,9 +7,9 @@ import ConfigProvider from './views/ConfigProvider.vue';
 <template>
   <ConfigProvider>
     <el-container>
-      <el-header>
+      <ElHeader>
         <Navigator />
-      </el-header>
+      </ElHeader>
       <el-main>
         <RouterView />
       </el-main>

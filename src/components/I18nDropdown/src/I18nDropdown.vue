@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { computed, unref } from 'vue'
-import { ElDropdown, ElDropdownMenu, ElDropdownItem } from 'element-plus'
-import { useLocaleStore } from '@/stores/modules/store.locale'
-import { propTypes } from '@/utils/util.proptypes'
-import { useDesign } from '@/utils/util.design'
 import { useLocale } from '@/helpers/helper.locale'
-import { Icon } from '@iconify/vue';
+import { useLocaleStore } from '@/stores/modules/store.locale'
+import { useDesign } from '@/utils/util.design'
+import { propTypes } from '@/utils/util.proptypes'
+import { Icon } from '@iconify/vue'
+import { ElDropdown, ElDropdownItem, ElDropdownMenu } from 'element-plus'
+import { computed, unref } from 'vue'
 
 const { getPrefixCls } = useDesign()
 
@@ -37,11 +37,11 @@ const setLang = (lang: LocaleType) => {
   <el-dropdown :class="prefixCls" trigger="click" placement="top-start"  @command="setLang">
     <span class="el-dropdown-link">
       {{ currentLang.name }}
-      <Icon icon="entypo:language" class="Icon" width="28"  :inline="true" />
+      <Icon icon="iconoir:language" class="Icon" width="28"  :inline="true" />
     </span>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item v-for="item in langMap" :key="item.lang" :command="item.lang" :divided="false" style="color: #409EFF; margin-right:16px; margin-bottom: 8px; margin-top: 8px;">
+        <el-dropdown-item v-for="item in langMap" :key="item.lang" :command="item.lang" :divided="false" style=" margin-right:16px; margin-bottom: 8px; margin-top: 8px;">
           {{ item.name }}
         </el-dropdown-item>
       </el-dropdown-menu>
@@ -54,10 +54,10 @@ const setLang = (lang: LocaleType) => {
 .el-dropdown{
   /* width: 40px; */
   margin-left: 15px;
+  color: #000
 }
 .el-dropdown-link {
   cursor: pointer;
-  color: #409EFF;
 }
 </style>
 @/stores/modules/store.locale

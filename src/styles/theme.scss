@@ -6,7 +6,7 @@
   ) {
     #{--text-color}: $theme-text;
     #{--body-bg}: $theme-bg;
-    #{--header-bg}: rgba(lighten($theme-bg, 10%), 0.8);
+    #{--header-bg}: rgba(lighten($theme-bg, 10%), 0.6);
     #{--module-bg}: darken($theme-bg, 10%);
     #{--module-bg-light}: darken($theme-bg, 2%);
  

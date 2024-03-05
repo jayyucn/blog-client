@@ -2,12 +2,13 @@
   "article": {
     "anonymous": "匿名",
     "author": "作者：",
+    "divider": "正文",
     "empty": "暫無文章，請稍後再試",
     "featured": "精選",
     "latest": "最新",
     "popular": "熱門",
     "readmore": "閱讀更多...",
-    "update_at": "更新於："
+    "updated_at": "更新於"
   },
   "common": {
     "about": "關於",

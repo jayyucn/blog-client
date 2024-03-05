@@ -7,7 +7,6 @@ import { loadEnv, type ConfigEnv, type UserConfig } from 'vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Icons from 'unplugin-icons/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import EslintPlugin from 'vite-plugin-eslint'
 
@@ -24,7 +23,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     env = loadEnv(mode, root)
   }
   return{
-    base:  env.VITE_BASE_PATH,
+    base:  '/',
   plugins: [
     vue(),
     AutoImport({
@@ -35,7 +34,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       // Auto import functions from Element Plus, e.g. ElMessage, ElMessageBox... (with style)
       // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
       resolvers: [
-        ElementPlusResolver(),
+        // ElementPlusResolver(),
 
         // Auto import icon components
         // 自动导入图标组件
@@ -44,7 +43,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         }),
       ],
 
-      dts: path.resolve(pathSrc, 'auto-imports.d.ts'),
+      // dts: path.resolve(pathSrc, 'auto-imports.d.ts'),
     }),
 
     Components({
@@ -56,10 +55,10 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         }),
         // Auto register Element Plus components
         // 自动导入 Element Plus 组件
-        ElementPlusResolver(),
+        // ElementPlusResolver(),
       ],
 
-      dts: path.resolve(pathSrc, 'components.d.ts'),
+      // dts: path.resolve(pathSrc, 'components.d.ts'),
     }),
 
     Icons({
@@ -118,6 +117,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       'vue-router',
       'vue-types',
       'element-plus/es/locale/lang/zh-cn',
+      'element-plus/es/locale/lang/zh-tw',
       'element-plus/es/locale/lang/en',
       '@element-plus/icons-vue',
     ]

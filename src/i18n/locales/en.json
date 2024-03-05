@@ -2,12 +2,13 @@
   "article": {
     "anonymous": "anonymous",
     "author": "Author:",
+    "divider": "content",
     "empty": "There are no articles yet, please try again later.",
     "featured": "Featured",
     "latest": "Latest",
     "popular": "Popular",
     "readmore": "Read more...",
-    "update_at": "Updated on:"
+    "updated_at": "Updated on"
   },
   "common": {
     "about": "About",
