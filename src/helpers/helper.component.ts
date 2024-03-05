@@ -1,0 +1,1 @@
+export const getNavigationBarHeight = (): number => document.getElementById('el-header').clientHeight

@@ -1,8 +1,8 @@
 
 <script setup lang="ts">
 
-import HomeRightTabs from './HomeRightTabs.vue';
 import HomeRightSearch from './HomeRightSearch.vue';
+import HomeRightTabs from './HomeRightTabs.vue';
 
 </script>
 
@@ -16,7 +16,9 @@ import HomeRightSearch from './HomeRightSearch.vue';
 </template>
 
 <style lang="scss" scoped>
-
+.home-right {
+    margin-top: 20px;
+}
 
 </style>
 

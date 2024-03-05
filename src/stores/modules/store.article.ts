@@ -8,36 +8,38 @@ interface ArticleDetailState {
   article: ArticleDetail; // 定义一个响应式数据，用于存储文章详情
 }
 
+const defaultArticle: ArticleDetail = {
+  _id: null,
+  id: 0,
+  author: '',
+  title: '',
+  description: '',
+  keywords: [],
+  content: '',
+  thumbnail: '',
+  origin: 0,
+  featured: false,
+  disabled_comments: false,
+  tags: [],
+  categories: [],
+  meta: {
+    likes: 0,
+    views: 0,
+    comments: 0
+  },
+  updated_at: '',
+  created_at: '',
+  extends: [],
+}
 
 export const useArticleDetailStore = defineStore('articleDetail', {
   state: (): ArticleDetailState => {
     return {
-      article: {
-        _id: null,
-        id: 0,
-        author: '',
-        title: '',
-        description: '',
-        keywords: [],
-        content: '',
-        thumbnail: '',
-        origin: 0,
-        featured: false,
-        disabled_comments: false,
-        tags: [],
-        categories: [],
-        meta: {
-          likes: 0,
-          views: 0,
-          comments: 0
-        },
-        updated_at: '',
-        created_at: '',
-        extends: [],
-      },
+      article: deepClone(defaultArticle),
     }
   },
   getters: {
+
     getArticle(): ArticleDetail {
       return this.article
     },
@@ -62,6 +64,10 @@ export const useArticleDetailStore = defineStore('articleDetail', {
   actions: {
     setArticleDetail(article: ArticleDetail) {
       this.article = deepClone(article)
+    },
+
+    clearArticleDetail() {
+      this.article = deepClone(defaultArticle)
     }
   },
 })

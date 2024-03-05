@@ -9,6 +9,7 @@ import IconsResolver from 'unplugin-icons/resolver'
 import Icons from 'unplugin-icons/vite'
 import Components from 'unplugin-vue-components/vite'
 import EslintPlugin from 'vite-plugin-eslint'
+import prismjs from 'vite-plugin-prismjs'
 
 const root = process.cwd()
 
@@ -22,105 +23,108 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   } else {
     env = loadEnv(mode, root)
   }
-  return{
-    base:  '/',
-  plugins: [
-    vue(),
-    AutoImport({
-      // Auto import functions from Vue, e.g. ref, reactive, toRef...
-      // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
-      imports: ['vue'],
+  return {
+    base: '/',
+    plugins: [
+      vue(),
+      prismjs({
+        languages: ['html', 'batch', 'c', 'cpp', 'cmake', 'csharp', 'css', 'git', 'glsl', 'go', 'hlsl', 'http', 'ini', 'javascript', 'jsdoc', 'json', 'less', 'markdown', 'mongodb', 'protobuf', 'python', 'rust', 'sass', 'scss', 'sql', 'typescript'],
+      }),
+      AutoImport({
+        // Auto import functions from Vue, e.g. ref, reactive, toRef...
+        // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
+        imports: ['vue'],
 
-      // Auto import functions from Element Plus, e.g. ElMessage, ElMessageBox... (with style)
-      // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
-      resolvers: [
-        // ElementPlusResolver(),
+        // Auto import functions from Element Plus, e.g. ElMessage, ElMessageBox... (with style)
+        // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
+        resolvers: [
+          // ElementPlusResolver(),
 
-        // Auto import icon components
-        // 自动导入图标组件
-        IconsResolver({
-          prefix: 'Icon',
-        }),
-      ],
+          // Auto import icon components
+          // 自动导入图标组件
+          IconsResolver({
+            prefix: 'Icon',
+          }),
+        ],
 
-      // dts: path.resolve(pathSrc, 'auto-imports.d.ts'),
-    }),
+        // dts: path.resolve(pathSrc, 'auto-imports.d.ts'),
+      }),
 
-    Components({
-      resolvers: [
-        // Auto register icon components
-        // 自动注册图标组件
-        IconsResolver({
-          enabledCollections: ['ep'],
-        }),
-        // Auto register Element Plus components
-        // 自动导入 Element Plus 组件
-        // ElementPlusResolver(),
-      ],
+      Components({
+        resolvers: [
+          // Auto register icon components
+          // 自动注册图标组件
+          IconsResolver({
+            enabledCollections: ['ep'],
+          }),
+          // Auto register Element Plus components
+          // 自动导入 Element Plus 组件
+          // ElementPlusResolver(),
+        ],
 
-      // dts: path.resolve(pathSrc, 'components.d.ts'),
-    }),
+        // dts: path.resolve(pathSrc, 'components.d.ts'),
+      }),
 
-    Icons({
-      autoInstall: true,
-      compiler: 'vue3',
-    }),
-   
+      Icons({
+        autoInstall: true,
+        compiler: 'vue3',
+      }),
 
-    EslintPlugin({
-      cache: false,
-      include: ['src/**/*.vue', 'src/**/*.ts'] // 检查的文件
-    }),
-  ],
-  css: {
-    preprocessorOptions: {
-      scss: {
-        // 引入全局样式
-        additionalData: `@import '@/styles/app.scss';`
-      },
-      // less: {
-      //   math: "always",
-      //   globalVars: {
-      //     headerBgColor: "#fff",
-      //   },
-      //   additionalData: '@import "./src/styles/variables.module.less";',
-      //   javascriptEnabled: true,
-      // }
-    }
-  },
-  resolve: {
-    alias: [
-      {
-        find: 'vue-i18n',
-        replacement: 'vue-i18n/dist/vue-i18n.cjs.js' // Resolve the i18n warning issue.
-      },
-      {
-        find: '@',
-        replacement: fileURLToPath(new URL('./src', import.meta.url))
-      }]
-  },
-  server: {
-    host: '0.0.0.0',
-    port: 3000,
-    open: true,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:8001',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+
+      EslintPlugin({
+        cache: false,
+        include: ['src/**/*.vue', 'src/**/*.ts'] // 检查的文件
+      }),
+    ],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // 引入全局样式
+          additionalData: `@import '@/styles/app.scss';`
+        },
+        // less: {
+        //   math: "always",
+        //   globalVars: {
+        //     headerBgColor: "#fff",
+        //   },
+        //   additionalData: '@import "./src/styles/variables.module.less";',
+        //   javascriptEnabled: true,
+        // }
       }
+    },
+    resolve: {
+      alias: [
+        {
+          find: 'vue-i18n',
+          replacement: 'vue-i18n/dist/vue-i18n.cjs.js' // Resolve the i18n warning issue.
+        },
+        {
+          find: '@',
+          replacement: fileURLToPath(new URL('./src', import.meta.url))
+        }]
+    },
+    server: {
+      host: '0.0.0.0',
+      port: 3000,
+      open: true,
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8001',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, '')
+        }
+      }
+    },
+    optimizeDeps: {
+      include: [
+        'vue',
+        'vue-router',
+        'vue-types',
+        'element-plus/es/locale/lang/zh-cn',
+        'element-plus/es/locale/lang/zh-tw',
+        'element-plus/es/locale/lang/en',
+        '@element-plus/icons-vue',
+      ]
     }
-  },
-  optimizeDeps: {
-    include: [
-      'vue',
-      'vue-router',
-      'vue-types',
-      'element-plus/es/locale/lang/zh-cn',
-      'element-plus/es/locale/lang/zh-tw',
-      'element-plus/es/locale/lang/en',
-      '@element-plus/icons-vue',
-    ]
   }
-}
 }

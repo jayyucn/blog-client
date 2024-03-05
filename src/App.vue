@@ -7,7 +7,7 @@ import ConfigProvider from './views/ConfigProvider.vue';
 <template>
   <ConfigProvider>
     <el-container>
-      <ElHeader>
+      <ElHeader id="el-header">
         <Navigator />
       </ElHeader>
       <el-main>
@@ -25,12 +25,16 @@ import ConfigProvider from './views/ConfigProvider.vue';
   min-width: 100vw;
 }
 
+.el-main {
+}
+
 .el-header,
 .el-footer,
 .el-main {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  padding: 0px;
 }
 
 .el-header {

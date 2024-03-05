@@ -43,7 +43,11 @@ onMounted(() => console.log('onMounted'))
 onBeforeUpdate(() => console.log('onBeforeUpdate'))
 onUpdated(() => console.log('onUpdated'))
 onBeforeUnmount(() => console.log('onBeforeUnmount'))
-onUnmounted(() => console.log('onUnmounted'))
+onUnmounted(() => {
+  console.log('onUnmounted')
+  // 清除文章详情相关的状态和属性 
+  Store.articleDetail.clearArticleDetail() 
+})
 onActivated(() => console.log('onActivated'))
 onDeactivated(() => console.log('onDeactivated'))
 onErrorCaptured(() => console.log('onErrorCaptured'))
