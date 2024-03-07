@@ -3,11 +3,11 @@ import { fileURLToPath, URL } from 'node:url'
 import vue from '@vitejs/plugin-vue'
 import { loadEnv, type ConfigEnv, type UserConfig } from 'vite'
 
-import fs from 'fs'
 import AutoImport from 'unplugin-auto-import/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Icons from 'unplugin-icons/vite'
 import Components from 'unplugin-vue-components/vite'
+//@ts-ignore
 import EslintPlugin from 'vite-plugin-eslint'
 import prismjs from 'vite-plugin-prismjs'
 
@@ -16,13 +16,14 @@ const root = process.cwd()
 // const pathSrc = path.resolve(__dirname, 'src')
 // https://vitejs.dev/config/
 export default ({ command, mode }: ConfigEnv): UserConfig => {
-  let env = {} as any
+  let env = {}
   const isBuild = command === 'build'
   if (!isBuild) {
     env = loadEnv(process.argv[3] === '--mode' ? process.argv[4] : process.argv[3], root)
   } else {
     env = loadEnv(mode, root)
   }
+  console.log('env: ', env)
   return {
     base: '/',
     assetsInclude: ['@/i18n/locales /*.json'],
@@ -74,7 +75,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
 
       EslintPlugin({
         cache: false,
-        include: ['src/**/*.vue', 'src/**/*.ts'] // 检查的文件
+        include: ['src/**/*.vue', 'src/**/*.ts'], // 检查的文件
       }),
     ],
     css: {
@@ -116,28 +117,12 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         }
       }
     },
-    build: {
-      emptyOutDir: false,
-      write: (()=>{
-        //清除dist目录除了.git目录之外的文件
-        fs.readdir('dist', (err, files) => {
-          if (err) throw err;
-          for (const file of files) {
-            if (file !== '.git') {
-              fs.rmSync(`dist/${file}`, { recursive: true });
-            }
-          }
-        })
-        return true
-        const isProduction = process.env.NODE_ENV === 'production'
-        return !isProduction 
-      })()
-    },
     optimizeDeps: {
       include: [
         'vue',
         'vue-router',
         'vue-types',
+        'vite-plugin-eslint',
         'element-plus/es/locale/lang/zh-cn',
         'element-plus/es/locale/lang/zh-tw',
         'element-plus/es/locale/lang/en',
