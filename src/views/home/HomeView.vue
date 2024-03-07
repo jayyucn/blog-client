@@ -8,15 +8,15 @@ import SideNav from './components/SideNav.vue';
 
 
 <template>
-  <div class="blank-top"></div>
   <div class="home">
-    <el-row class="row-bg" :gutter="20">
-      <el-col :span="4" class="grid-content left" >
+    <el-row class="row-bg" >
+      <el-col :span="4" class="grid-content left">
         <SideNav />
       </el-col>
       <el-divider direction="vertical" />
       <el-col :span="15" class="grid-content mid">
-          <router-view/>
+        <div class="blank-top mid"></div>
+        <router-view />
       </el-col>
       <el-divider direction="vertical" />
       <el-col :span="4" class="grid-content right">
@@ -27,14 +27,14 @@ import SideNav from './components/SideNav.vue';
 </template>
 
 <style lang="scss" scoped>
-.blank-top {
-  // height: var(--header-height);
+
+.blank-top.mid {
+  height: 85px;
 }
 
 @media (min-width: 1024px) {
   .home {
     display: flex;
-    margin-top: 85px;//$header-height;
     min-height: 100%;
     width: min(80%, 1800px);
 
@@ -51,8 +51,7 @@ import SideNav from './components/SideNav.vue';
     flex-grow: 1;
   }
 
-  .right
-  .left {
+  .right .left {
     max-width: 300px;
   }
 

@@ -1,1 +1,0 @@
-import{_ as e,k as s,l as o,n as t}from"./index-jstLeNn_.js";const c={},n={class:"blog"},_=t("h1",null,"This is an blog page",-1),a=[_];function r(l,i){return s(),o("div",n,a)}const f=e(c,[["render",r]]);export{f as default};

@@ -1,9 +1,9 @@
 import { fileURLToPath, URL } from 'node:url'
-import path from 'path'
 
 import vue from '@vitejs/plugin-vue'
 import { loadEnv, type ConfigEnv, type UserConfig } from 'vite'
 
+import fs from 'fs'
 import AutoImport from 'unplugin-auto-import/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Icons from 'unplugin-icons/vite'
@@ -13,7 +13,7 @@ import prismjs from 'vite-plugin-prismjs'
 
 const root = process.cwd()
 
-const pathSrc = path.resolve(__dirname, 'src')
+// const pathSrc = path.resolve(__dirname, 'src')
 // https://vitejs.dev/config/
 export default ({ command, mode }: ConfigEnv): UserConfig => {
   let env = {} as any
@@ -25,6 +25,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   }
   return {
     base: '/',
+    assetsInclude: ['@/i18n/locales /*.json'],
     plugins: [
       vue(),
       prismjs({
@@ -115,6 +116,23 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         }
       }
     },
+    build: {
+      emptyOutDir: false,
+      write: (()=>{
+        //清除dist目录除了.git目录之外的文件
+        fs.readdir('dist', (err, files) => {
+          if (err) throw err;
+          for (const file of files) {
+            if (file !== '.git') {
+              fs.rmSync(`dist/${file}`, { recursive: true });
+            }
+          }
+        })
+        return true
+        const isProduction = process.env.NODE_ENV === 'production'
+        return !isProduction 
+      })()
+    },
     optimizeDeps: {
       include: [
         'vue',
@@ -127,4 +145,5 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       ]
     }
   }
+  
 }

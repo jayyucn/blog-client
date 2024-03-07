@@ -17,7 +17,7 @@ interface IAnchor {
     indent: number;
 }
 
-
+const isArticle = ref(false); // 是否是文章页面，用于控制是否显示大纲树
 
 //点击事件
 const handleAnchorClick = (data: Tree) => {
@@ -50,19 +50,19 @@ onMounted(() => {
 
 watch(() => Store.articleDetail.article.content,
     () => {
+        isArticle.value = Store.articleDetail.hasTagName; // 设置为文章页面，显示大纲树
         titleTrees.value = [];
-        nextTick(() => {
-            const preview = document.getElementById('preview');
-            if (!preview) {
-                return;
-            }
-            const anchorEls: HTMLElement[] = [];    
-            preview.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach((heading) => {
-                anchorEls.push(heading as HTMLElement);
-            })
-            titleTrees.value = buildTrees(anchorEls);
-        });
-    }
+        const preview = document.getElementById('preview');
+        if (!preview) {
+            return;
+        }
+        const anchorEls: HTMLElement[] = [];
+        preview.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach((heading) => {
+            anchorEls.push(heading as HTMLElement);
+        })
+        titleTrees.value = buildTrees(anchorEls);
+    },
+    { flush: 'post' }
 )
 
 
@@ -97,22 +97,23 @@ function buildTrees(elements: HTMLElement[]): Tree[] {
     return rootTrees;
 }
 function createTreeNode(element: HTMLElement, indent: number): Tree | null {
-    const tagName = element.tagName.toLowerCase();  // 获取标签名并转换为小写
-    const level = Number(tagName.charAt(1));  // 获取标题级别（从1开始）
-    if (isNaN(level) || level < 1 || level > 6) return null;  // 检查级别是否在1到6之间，如果不是则返回null
-    const anchor = {  // 创建锚点对象，包含标题文本和行索引（如果有的话）
-        title: element.innerText.trim(),  // 获取标题文本并去除首尾空格
-        lineIndex: element.getAttribute('data-v-md-line'),  // 获取行索引（如果有的话）
-        indent: indent,  // 获取标题的缩进级别（从0开始）
+    const tagName = element.tagName.toLowerCase();
+    const level = Number(tagName.charAt(1));
+    if (isNaN(level) || level < 1 || level > 6) return null;
+    const anchor = {
+        title: element.innerText.trim(),
+        lineIndex: element.getAttribute('data-v-md-line'),
+        indent: indent,
     };
-    const children: Tree[] = [];  // 创建子节点数组，用于存储子标题节点
-    return {  // 返回标题节点对象，包含标题文本、行索引、缩进级别和子节点数组
-        label: anchor.title,  // 标题文本
+    const children: Tree[] = [];
+    return {
+        label: anchor.title,
         level: anchor.indent,
-        anchor: anchor,  // 标题文本和行索引（如果有的话）
-        children: children,  // 子节点数组，用于存储子标题节点
+        anchor: anchor,
+        children: children,
     }
 }
+
 
 const defaultProps = {
     children: 'children',
@@ -122,7 +123,7 @@ const defaultProps = {
 </script>
 
 <template>
-    <el-affix id="sidenav" :offset="85">
+    <el-affix v-if="isArticle" :offset="86">
         <el-tree style="max-width: 1000px" node-key="level" :default-expanded-keys="[2, 3]" :data="titleTrees"
             :props="defaultProps" :expand-on-click-node=false @node-click="handleAnchorClick" />
     </el-affix>
@@ -131,9 +132,6 @@ const defaultProps = {
 <style lang="scss" scoped>
 .el-tree {
     @include border;
-}
-
-.sidenav {
-    margin-top: 100000px;
+    background:  linear-gradient(to top right, #ccc, #fff);// var(--module-bg)
 }
 </style>

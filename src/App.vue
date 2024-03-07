@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Icon } from '@iconify/vue';
 import { i18n } from './i18n';
 import ConfigProvider from './views/ConfigProvider.vue';
 
@@ -15,7 +16,9 @@ import ConfigProvider from './views/ConfigProvider.vue';
       </el-main>
       <el-footer>{{ i18n.t('common.copyRight') }}@jayyu.cn</el-footer>
     </el-container>
-    <el-backtop :right="100" :bottom="100" />
+    <el-backtop :bottom="200" :right="200">
+        <Icon icon="tdesign:backtop" style="color: black" />
+    </el-backtop>
   </ConfigProvider>
 </template>
 
@@ -25,8 +28,7 @@ import ConfigProvider from './views/ConfigProvider.vue';
   min-width: 100vw;
 }
 
-.el-main {
-}
+.el-main {}
 
 .el-header,
 .el-footer,

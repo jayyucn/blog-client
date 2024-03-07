@@ -2,11 +2,24 @@
     <v-md-preview :text="text" ref="myPreview" id="preview" @copy-code-success="handleCopyCodeSuccess" />
 </template>
 
+<style  lang="scss" scoped>
+.preview {
+    background-color: transparent ;
+}
+
+</style>
+
 <script setup lang="ts">
 import { useEventBus } from '@/event';
 import { getNavigationBarHeight } from '@/helpers/helper.component';
 import { ElMessage } from 'element-plus';
 import { ref } from 'vue';
+
+onMounted(() => {
+  nextTick(() => {
+    (document.getElementsByClassName('vuepress-markdown-body').item(0) as HTMLElement).style.background = 'transparent';
+  })
+})
 
 useEventBus({
     name: 'anchorClick',
@@ -22,7 +35,7 @@ defineProps<{
 
 const myPreview = ref<any>(null);
 
-function handleCopyCodeSuccess(code: string) {
+function handleCopyCodeSuccess(_code: string) {
     // 处理复制代码成功的逻辑  
     ElMessage.success('复制成功');
     // ...  

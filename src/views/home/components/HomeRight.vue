@@ -17,7 +17,7 @@ import HomeRightTabs from './HomeRightTabs.vue';
 
 <style lang="scss" scoped>
 .home-right {
-    margin-top: 20px;
+    margin-top: 86px;
 }
 
 </style>

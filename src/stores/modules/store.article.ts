@@ -40,6 +40,22 @@ export const useArticleDetailStore = defineStore('articleDetail', {
   },
   getters: {
 
+    hasTagName(): boolean {
+      if (!this.article || !this.article.content) {
+        return false
+      }
+      // 正则表达式匹配 Markdown 中的 h1-h6 标题  
+      const markdownHeadingRegex = /^(#{1,6})\s(.+)$/gm;
+      // 检查 Markdown 标题  
+      if (markdownHeadingRegex.test(this.article.content)) {
+        return true;
+      }
+      // 检查 HTML 中的 h1-h6 标题  
+      const htmlHeadingRegex = /<h[1-6]>[\s\S]*?<\/h[1-6]>/gm;
+      // 如果 Markdown 中没有标题，检查 HTML  
+      return htmlHeadingRegex.test(this.article.content);
+    },
+
     getArticle(): ArticleDetail {
       return this.article
     },
@@ -56,7 +72,7 @@ export const useArticleDetailStore = defineStore('articleDetail', {
     getCreateAt(): string {
       return this.article.created_at
     },
-    
+
     getContent(): string {
       return this.article.content
     }

@@ -39,7 +39,9 @@ const content = computed(() => {
 })
 
 
-onMounted(() => console.log('onMounted'))
+onMounted(() => {
+  window.scrollTo(0, 0);
+})
 onBeforeUpdate(() => console.log('onBeforeUpdate'))
 onUpdated(() => console.log('onUpdated'))
 onBeforeUnmount(() => console.log('onBeforeUnmount'))
@@ -64,7 +66,7 @@ onErrorCaptured(() => console.log('onErrorCaptured'))
 
         <!-- 作者信息 -->
         <div class="author-info">
-          <span class="author-tag">{{ i18n.t('article.author') }} <span class="author-name">{{ articleDetail.author }}</span></span>
+          <span class="author-tag">{{ i18n.t('article.author') }} <span class="author-name">{{ articleDetail.author || i18n.t('article.anonymous') }}</span></span>
         </div>
 
         <!-- 发布/更新日期 -->
@@ -91,15 +93,21 @@ onErrorCaptured(() => console.log('onErrorCaptured'))
   user-select: text;
 }
 
+
+
 .preview {
   padding: 4px;
 }
 
 .blog-header-card {
   // background-color: #f5f7fa;
+  display: block;
+  background: linear-gradient(to top right, #ddd, #fff);
 
   .blog-title {
-    font-size: 24px;
+    //居中
+    text-align: center;
+    font-size: 28px;
     font-weight: bold;
     margin-bottom: 10px;
   }

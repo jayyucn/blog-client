@@ -6,7 +6,7 @@ const input1 = ref('')
 </script>
 
 <template>
-    <el-affix :offset="85">
+    <el-affix :offset="90">
         <div class="input-container">
             <el-input v-model="input1" class="input" :placeholder="i18n.t('common.search')">
                 <template #append>
