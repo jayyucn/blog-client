@@ -15,4 +15,8 @@ export default class ArticleBrief {
     created_at: string
     //作者
     author: string
+    //标签
+    tags: any[]
+    //分类
+    categories: any[]
 }

@@ -109,20 +109,12 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       host: '0.0.0.0',
       port: 3000,
       open: true,
-      proxy: {
-        '/api': {
-          target: 'http://localhost:8001',
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, '')
-        }
-      }
     },
     optimizeDeps: {
       include: [
         'vue',
         'vue-router',
         'vue-types',
-        'vite-plugin-eslint',
         'element-plus/es/locale/lang/zh-cn',
         'element-plus/es/locale/lang/zh-tw',
         'element-plus/es/locale/lang/en',

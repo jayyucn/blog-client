@@ -31,7 +31,7 @@ axiosInstance.interceptors.response.use(
   },
   (error: AxiosError) => {
     console.log('err： ' + error) // for debug
-    ElMessage.error(error.message)
+    ElMessage.error({message:  error.message, offset: 100})
     return Promise.reject(error)
   }
 )
@@ -77,7 +77,8 @@ const defaultResponseInterceptors = (response: AxiosResponse) => {
     return response.data
   }
   else {
-    ElMessage.error(response?.data?.message)
+    
+    ElMessage.error({message:  response?.data?.message, offset: 100})
   }
 }
 

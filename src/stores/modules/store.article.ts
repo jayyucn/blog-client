@@ -132,7 +132,10 @@ export const useArticleListStore = defineStore('articleList', {
     setPaginationList(list: PaginationList<ArticleBrief>) {
       this.pagination = deepClone(list.pagination)
       this.articleList = deepClone(list.data)
-    }
+    },
+    setCurrentPage(page: number): void {
+      this.pagination.current_page = page
+    },
   }
 
 })

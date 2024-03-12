@@ -18,5 +18,6 @@
     "search": "Search",
     "vueLogo": "Vue logo",
     "youDidIt": "You did it!"
-  }
+  },
+  "test": "test"
 }

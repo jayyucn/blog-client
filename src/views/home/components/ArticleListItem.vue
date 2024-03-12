@@ -3,15 +3,14 @@ import type ArticleBrief from "@/data/article/article.brief";
 import { i18n } from "@/i18n";
 import { getArticleDetailRoute } from '@/transforms/transform.route';
 import { formatTime } from "@/utils";
-import { ref } from "vue";
 
-defineProps<{
+const props = defineProps<{
     article: ArticleBrief
 }>()
 // const title = ref("这是文章的主要标题");
 // const publishDate = ref("2022-01-01");
 // const summary = ref("文章摘要用于简要介绍文章的内容");
-const tags = ref(["标签1", "标签2", "标签3"]);
+const tags = computed(()=> props.article.tags.map(tag => i18n.t(`${tag.name}`)));
 
 const tagType = (index: number) => {
     return index % 2 === 0 ? "success" : "info";
@@ -24,7 +23,7 @@ const tagType = (index: number) => {
             <h3 class="title">{{ article.title }}</h3>
             <p style="font-size:1cap;">
                 <span>{{ i18n.t('article.author') }} <i>{{ article.author || i18n.t('article.anonymous') }}</i></span>
-                <span>{{ i18n.t('article.update_at') }} {{ formatTime(article.updated_at, 'yyyy-MM-dd HH:mm:ss') }}</span>
+                <span>{{ i18n.t('article.updated_at') }} {{ formatTime(article.updated_at, 'yyyy-MM-dd') }}</span>
             </p>
             <p class="description">{{ article.description }} <router-link class="link"
                     :to="getArticleDetailRoute(article.id)">{{ i18n.t('article.readmore') }}</router-link></p>

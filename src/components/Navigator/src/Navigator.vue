@@ -1,9 +1,14 @@
 <script lang="ts" setup>
 
+import { i18n } from '@/i18n';
 import { router } from '@/router';
 
 function clickHome() {
   router.replace('/')
+}
+
+function clickAbout() {
+  router.replace('/about')
 }
 
 </script>
@@ -16,8 +21,11 @@ function clickHome() {
 
     </el-col>
     <el-col :span="10" class="grid-content mid" />
-    <el-col :span="4" class="grid-content right">
-      <I18nDropdown />
+    <el-col :span="2" class="grid-content right">
+      <el-text type @click="clickAbout"><el-icon>
+          <InfoFilled />
+        </el-icon>{{ i18n.t('common.about') }}</el-text>
+        <I18nDropdown />
     </el-col>
   </el-row>
 </template>
