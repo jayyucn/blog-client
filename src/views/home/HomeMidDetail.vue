@@ -54,7 +54,6 @@ onUnmounted(() => {
 onActivated(() => console.log('onActivated'))
 onDeactivated(() => console.log('onDeactivated'))
 onErrorCaptured(() => console.log('onErrorCaptured'))
-const herf = ref(window.location.href)
 
 </script>
 
