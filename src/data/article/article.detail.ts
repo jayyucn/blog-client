@@ -1,7 +1,6 @@
 import { OriginState } from "@/enums/enum.article"
 import type { UniversalKeyValue } from "@/interfaces/interface.common"
-import type { Tag } from "element-plus"
-import type { Category } from ".."
+import type { Category, Tag } from ".."
 
 export default interface ArticleDetail {
   // 文章id

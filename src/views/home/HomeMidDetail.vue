@@ -2,6 +2,7 @@
 import { i18n } from '@/i18n';
 import API from '@/net/api';
 import Store from '@/stores';
+import { countCharacters } from '@/utils/util.string';
 import { formatToDate } from '@/utils/util.time';
 import CustomPreview from './components/CustomPreview.vue';
 
@@ -48,39 +49,62 @@ onBeforeUnmount(() => console.log('onBeforeUnmount'))
 onUnmounted(() => {
   console.log('onUnmounted')
   // 清除文章详情相关的状态和属性 
-  Store.articleDetail.clearArticleDetail() 
+  Store.articleDetail.clearArticleDetail()
 })
 onActivated(() => console.log('onActivated'))
 onDeactivated(() => console.log('onDeactivated'))
 onErrorCaptured(() => console.log('onErrorCaptured'))
+const herf = ref(window.location.href)
 
 </script>
 
 
 <template>
   <div class="container">
-    <!-- 博客头部区域 -->
     <el-card class="blog-header-card">
+      <!-- 博客头部区域 -->
       <template #header>
         <h1 class="blog-title">{{ articleDetail.title }}</h1>
+        <div class="article-info">
+          <!-- 作者信息 -->
+          <div class="author-info">
+            <span class="info author-tag">
+              <el-icon> <Avatar /></el-icon> 
+              <span class="author-name">{{ articleDetail.author ||i18n.t('article.anonymous') }}</span>
+            </span>
+          </div>
+          <div class="info characters">
+            <el-tooltip class="info date" effect="dark" :content= "i18n.t('article.wordcount')" placement="bottom"><el-icon> <EditPen /></el-icon> </el-tooltip>{{ countCharacters(articleDetail.content) || 0 }}
+          </div>
+          <!-- 发布/更新日期 -->
+          <div class="info date">
+            <el-tooltip  effect="dark" :content="i18n.t('article.updated_at')" placement="bottom">
+              <el-icon> <Clock /></el-icon> 
+            </el-tooltip>
+            {{ formatToDate(articleDetail.updated_at) }}
+          </div>
+          <div class="info views">
+            <el-tooltip  effect="dark" :content="i18n.t('article.views')" placement="bottom">
+              <el-icon> <View /></el-icon> 
+            </el-tooltip>
+            {{ articleDetail.meta.views|| 0 }}
+          </div>
 
-        <!-- 作者信息 -->
-        <div class="author-info">
-          <span class="author-tag">{{ i18n.t('article.author') }} <span class="author-name">{{ articleDetail.author || i18n.t('article.anonymous') }}</span></span>
-        </div>
-
-        <!-- 发布/更新日期 -->
-        <div class="publish-date">
-          <el-tag type="info" class="publish-date-tag">
-            {{ i18n.t('article.updated_at') }}: {{ formatToDate(articleDetail.updated_at) }}
-          </el-tag>
+          
         </div>
       </template>
 
       <!-- 博客内容区域 -->
       <div class="blog-content">
-        <CustomPreview class="preview" :text="content"/>
+        <CustomPreview class="preview" :text="content" />
       </div>
+      <template #footer>
+        <div class="blog-footer">
+          <div class="tags" v-if="articleDetail.tags && articleDetail.tags.length > 0">
+            <el-tag v-for="(tag, index) in articleDetail.tags" :key="index" type="success" effect="dark"  round>{{ tag.name }}</el-tag>
+          </div>
+        </div>
+      </template>
     </el-card>
 
 
@@ -93,7 +117,30 @@ onErrorCaptured(() => console.log('onErrorCaptured'))
   user-select: text;
 }
 
+.article-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  color: #999999;
 
+  .info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+  }
+}
+
+.blog-footer {
+  display: flex;
+  gap: 16px;
+  .tags {
+    display: flex;
+    gap: 4px;
+  }
+}
 
 .preview {
   padding: 4px;
@@ -109,17 +156,10 @@ onErrorCaptured(() => console.log('onErrorCaptured'))
     text-align: center;
     font-size: 28px;
     font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-  .author-tag {
-    font-size: 16px;
-    color: #333;
+    margin-bottom: 16px;
   }
 
   .author-name {
-    font-size: 18px;
-    color: #333;
     font-weight: bold;
   }
 

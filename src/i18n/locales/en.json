@@ -8,7 +8,9 @@
     "latest": "Latest",
     "popular": "Popular",
     "readmore": "Read more...",
-    "updated_at": "Updated on"
+    "updated_at": "Article update time",
+    "views": "Article views",
+    "wordcount": "Number of words in this article"
   },
   "common": {
     "about": "About",

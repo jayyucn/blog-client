@@ -44,9 +44,9 @@ const handleCurrentChange = (page: number) => {
 </script>
 
 <template>
-  <el-carousel height="300px" indicator-position="outside">
+  <el-carousel height="300px" type="card" indicator-position="outside">
     <el-carousel-item v-for="item in 4" :key="item">
-      <h3 class="small justify-center" text="2xl">{{ item }}</h3>
+      <el-image class="img" fit="scale-down" src="https://gitee.com/jayyucn/static/raw/master/thumbnail/davies-designs-studio-f5_lfi2S-d4-unsplash.jpg" alt="Kitten" />
     </el-carousel-item>
   </el-carousel>
   <div v-if="articles.length > 0" class="list">
@@ -67,6 +67,14 @@ const handleCurrentChange = (page: number) => {
 .el-pagination{
   padding: 4px;
 }
+
+.el-carousel-item {
+  @include border;
+}
+.img {
+  padding: 8px;
+}
+
 .el-carousel__item h3 {
   color: #475669;
   opacity: 0.75;

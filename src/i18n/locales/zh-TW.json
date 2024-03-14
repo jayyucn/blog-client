@@ -8,7 +8,9 @@
     "latest": "最新",
     "popular": "熱門",
     "readmore": "閱讀更多...",
-    "updated_at": "更新於"
+    "updated_at": "文章的更新時間",
+    "views": "文章觀看次數",
+    "wordcount": "本文字數"
   },
   "common": {
     "about": "關於",

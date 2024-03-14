@@ -11,6 +11,7 @@ const props = defineProps<{
 // const publishDate = ref("2022-01-01");
 // const summary = ref("文章摘要用于简要介绍文章的内容");
 const tags = computed(()=> props.article.tags.map(tag => i18n.t(`${tag.name}`)));
+const categories = ref(props.article.categories)
 
 const tagType = (index: number) => {
     return index % 2 === 0 ? "success" : "info";
@@ -27,10 +28,14 @@ const tagType = (index: number) => {
             </p>
             <p class="description">{{ article.description }} <router-link class="link"
                     :to="getArticleDetailRoute(article.id)">{{ i18n.t('article.readmore') }}</router-link></p>
-            <p>
+            <p class="tags">
                 <el-tag v-for="(tag, index) in tags" :key="index" :type="tagType(index)">{{ tag }}</el-tag>
             </p>
+            
         </div>
+        <p class="categories">
+            <el-tag v-for="(cat, index) in categories" :key="index" :type="cat.type">{{ cat.name }}</el-tag>
+        </p>
     </div>
 </template>
   
@@ -76,8 +81,14 @@ const tagType = (index: number) => {
     font-weight: bold;
 }
 
-p {
+.tags {
     margin: 5px 0;
+}
+
+.categories {
+    margin-left: auto;
+    margin-top: auto;
+    padding-bottom: 10px;
 }
 
 span {
