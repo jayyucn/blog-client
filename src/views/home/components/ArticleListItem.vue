@@ -10,7 +10,7 @@ const props = defineProps<{
 // const title = ref("这是文章的主要标题");
 // const publishDate = ref("2022-01-01");
 // const summary = ref("文章摘要用于简要介绍文章的内容");
-const tags = computed(()=> props.article.tags.map(tag => i18n.t(`${tag.name}`)));
+const tags = computed(() => props.article.tags.map(tag => i18n.t(`${tag.name}`)));
 const categories = ref(props.article.categories)
 
 const tagType = (index: number) => {
@@ -19,33 +19,33 @@ const tagType = (index: number) => {
 </script>
 <template>
     <div class="article-list-item">
-        <img height="150px" width="300px" :src="article.thumbnail" class="image" />
+        <img height="180px" width="300px" :src="article.thumbnail" class="image" />
         <div class="article-info">
             <h3 class="title">{{ article.title }}</h3>
             <p style="font-size:1cap;">
                 <span>{{ i18n.t('article.author') }} <i>{{ article.author || i18n.t('article.anonymous') }}</i></span>
                 <span>{{ i18n.t('article.updated_at') }} {{ formatTime(article.updated_at, 'yyyy-MM-dd') }}</span>
             </p>
-            <p class="description">{{ article.description }} <router-link class="link"
+            <p class="description"><span>{{ article.description }}</span> <router-link size="small" class="link"
                     :to="getArticleDetailRoute(article.id)">{{ i18n.t('article.readmore') }}</router-link></p>
             <p class="tags">
                 <el-tag v-for="(tag, index) in tags" :key="index" :type="tagType(index)">{{ tag }}</el-tag>
             </p>
-            
+
         </div>
         <p class="categories">
             <el-tag v-for="(cat, index) in categories" :key="index" :type="cat.type">{{ cat.name }}</el-tag>
         </p>
     </div>
 </template>
-  
 
-  
+
+
 <style lang="scss" scoped>
 .article-list-item {
     display: flex;
     background-color: var(--module-bg-light);
-  border: 1px solid var(--el-border-color);
+    border: 1px solid var(--el-border-color);
 }
 
 .image {
@@ -58,22 +58,30 @@ const tagType = (index: number) => {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 150px;
     padding: 10px;
+
+    .description {
+        display: flex;
+        align-items: center;
+    }
+
+    .link {
+        margin-top: -0.1cap;
+        margin-left: 1cap;
+    }
+
+    .link:hover {
+        background-color: transparent;
+    }
+
+    .tags {
+        margin-top: auto;
+    }
 }
 
-.description {
-    display: flex;
-}
 
-.link {
-    margin-top: -0.1cap;
-    margin-left: 1cap;
-}
 
-.link:hover {
-    background-color: transparent;
-}
+
 
 .title {
     margin: 0;
@@ -81,9 +89,7 @@ const tagType = (index: number) => {
     font-weight: bold;
 }
 
-.tags {
-    margin: 5px 0;
-}
+
 
 .categories {
     margin-left: auto;
@@ -94,5 +100,4 @@ const tagType = (index: number) => {
 span {
     margin-right: 10px;
 }
-
 </style>
