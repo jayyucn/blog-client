@@ -7,7 +7,7 @@ import HomeRightTabs from './HomeRightTabs.vue';
 </script>
 
 <template>
-    <div class="home-right">
+    <div class="home-right" >
     <el-space class="home-right-container" alignment="" direction="vertical">
             <HomeRightSearch />
             <HomeRightTabs />

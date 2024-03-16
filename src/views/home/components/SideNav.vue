@@ -124,14 +124,15 @@ const defaultProps = {
 
 <template>
     <el-affix v-if="isArticle" :offset="86">
-        <el-tree style="max-width: 1000px" node-key="level" :default-expanded-keys="[2, 3]" :data="titleTrees"
+        <el-tree  node-key="level" :default-expanded-keys="[2, 3]" :data="titleTrees"
             :props="defaultProps" :expand-on-click-node=false @node-click="handleAnchorClick" />
     </el-affix>
 </template>
 
 <style lang="scss" scoped>
 .el-tree {
+    padding-right: 20px;
     @include border;
-    background:  linear-gradient(to top right, #ccc, #fff);// var(--module-bg)
+    // background:  linear-gradient(to top right, #ccc, #fff);// var(--module-bg)
 }
 </style>

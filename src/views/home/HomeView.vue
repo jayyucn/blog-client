@@ -51,9 +51,11 @@ import SideNav from './components/SideNav.vue';
     flex-grow: 1;
   }
 
-  .right .left {
-    max-width: 300px;
-  }
+  // .left  
+  // .right 
+  // {
+  //   max-width: 300px;
+  // }
 
   .grid-content.right {
     display: flex;

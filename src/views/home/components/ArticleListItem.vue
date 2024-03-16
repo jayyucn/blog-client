@@ -4,38 +4,51 @@ import { i18n } from "@/i18n";
 import { getArticleDetailRoute } from '@/transforms/transform.route';
 import { formatTime } from "@/utils";
 
-const props = defineProps<{
+const { article } = defineProps<{
     article: ArticleBrief
-}>()
-// const title = ref("这是文章的主要标题");
-// const publishDate = ref("2022-01-01");
-// const summary = ref("文章摘要用于简要介绍文章的内容");
-const tags = computed(() => props.article.tags.map(tag => i18n.t(`${tag.name}`)));
-const categories = ref(props.article.categories)
+}>();
 
-const tagType = (index: number) => {
-    return index % 2 === 0 ? "success" : "info";
-};
+const tags = computed(() => article.tags.map(tag => i18n.t(`${tag.name}`)));
+
 </script>
+
 <template>
     <div class="article-list-item">
-        <img height="180px" width="300px" :src="article.thumbnail" class="image" />
-        <div class="article-info">
-            <h3 class="title">{{ article.title }}</h3>
-            <p style="font-size:1cap;">
-                <span>{{ i18n.t('article.author') }} <i>{{ article.author || i18n.t('article.anonymous') }}</i></span>
-                <span>{{ i18n.t('article.updated_at') }} {{ formatTime(article.updated_at, 'yyyy-MM-dd') }}</span>
-            </p>
-            <p class="description"><span>{{ article.description }}</span> <router-link size="small" class="link"
-                    :to="getArticleDetailRoute(article.id)">{{ i18n.t('article.readmore') }}</router-link></p>
-            <p class="tags">
-                <el-tag v-for="(tag, index) in tags" :key="index" :type="tagType(index)">{{ tag }}</el-tag>
-            </p>
-
+        <div class="article-imag-div">
+            <el-image :src="article.thumbnail" class="article-image" alt="Article Thumbnail">
+                <template #placeholder>
+                    <div class="image-slot-placeholder">Loading<span class="dot">...</span></div>
+                </template>
+                <template #error>
+                    <div class="image-slot-error">
+                        <el-icon>
+                            <Picture />
+                        </el-icon>
+                    </div>
+                </template>
+            </el-image>
         </div>
-        <p class="categories">
-            <el-tag v-for="(cat, index) in categories" :key="index" :type="cat.type">{{ cat.name }}</el-tag>
-        </p>
+        <div class="article-content">
+            <h3 class="article-title">{{ article.title }}</h3>
+            <div class="article-meta">
+                <el-text><el-icon>
+                        <Avatar />
+                    </el-icon> {{ article.author || i18n.t('article.anonymous') }}</el-text>
+                <span> {{ formatTime(article.updated_at, 'yyyy-MM-dd') }}</span>
+            </div>
+            <p class="article-description">{{ article.description }}</p>
+            <router-link :to="getArticleDetailRoute(article.id)" class="read-more-link">{{ i18n.t('article.readmore')
+                }}</router-link>
+        </div>
+        <div class="article-flags">
+            <div class="flag article-tags">
+                <el-tag v-for="(tag, index) in tags" :key="index" type="info">{{ tag }}</el-tag>
+            </div>
+            <div class="flag article-categories">
+                <el-tag v-for="(cat, index) in article.categories" :key="index" :type="cat.type">{{ cat.name
+                    }}</el-tag>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -46,58 +59,103 @@ const tagType = (index: number) => {
     display: flex;
     background-color: var(--module-bg-light);
     border: 1px solid var(--el-border-color);
+
+    .article-flags {
+        display: block;
+        position: relative;
+        //固定宽度，结合下面的overflow-x: visible; 实现tags 溢出时显示
+        width: 60px;
+        overflow-x: visible;
+        direction: rtl;
+        //和父容器等高
+        height: inherit;
+        margin: 10px 10px 10px auto;
+
+        .flag {
+            width: 600px;
+        }
+
+        .article-categories {
+            position: absolute;
+            bottom: 0px;
+        }
+    }
 }
 
-.image {
+.article-imag-div {
+    background-color: var(--module-bg);
     margin: 0px;
-    padding: 0px;
-    @include leftBorder();
+    width: 300px;
+    height: 180px;
+    @include border();
 }
 
-.article-info {
+.article-image {
+    width: inherit;
+    height: inherit;
+    padding: 2px;
+
+    .image-slot-placeholder {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        color: var(--el-text-color-secondary);
+        font-size: 14px;
+    }
+
+    .image-slot-error {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        color: var(--el-text-color-secondary);
+        font-size: 30px;
+    }
+
+    .dot {
+        animation: dot 2s infinite steps(3, start);
+        overflow: hidden;
+    }
+}
+
+
+.article-content {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 10px;
 
-    .description {
+    .article-title {
+        margin: 0;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .article-meta {
         display: flex;
+        justify-content: start;
         align-items: center;
+        
+        gap: 8px;
+        font-size: 14px;
+        color: $text-color-weak;
     }
 
-    .link {
-        margin-top: -0.1cap;
-        margin-left: 1cap;
+    .article-description {
+        margin-top: 8px;
     }
 
-    .link:hover {
+    .read-more-link {
+        margin-top: auto;
+        width: 300px;
+        padding-bottom: 20px;
+    }
+
+    .read-more-link:hover {
         background-color: transparent;
     }
-
-    .tags {
-        margin-top: auto;
-    }
-}
-
-
-
-
-
-.title {
-    margin: 0;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-
-
-.categories {
-    margin-left: auto;
-    margin-top: auto;
-    padding-bottom: 10px;
-}
-
-span {
-    margin-right: 10px;
 }
 </style>

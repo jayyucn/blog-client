@@ -31,7 +31,7 @@ const fetchArticles = (page: number = 0, page_size: number = 0) => {
 }
 const articles = computed(() => Store.articleList.getArticleList || [])
 const currentPage = ref(Store.articleList.pagination.current_page)
-const pageSize = computed(() => Store.articleList.getPageSize)
+const pageSize = ref(Store.articleList.pagination.page_size)
 const totalCount = computed(() => Store.articleList.getTotalCount)
 const handleSizeChange = (val: number) => {
   fetchArticles( 0,  val)

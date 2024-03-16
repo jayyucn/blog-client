@@ -122,7 +122,7 @@ onErrorCaptured(() => console.log('onErrorCaptured'))
   align-items: center;
   gap: 16px;
   font-size: 14px;
-  color: #999999;
+  color: $text-color-weak;
 
   .info {
     display: flex;
