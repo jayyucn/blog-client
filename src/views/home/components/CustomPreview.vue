@@ -11,8 +11,7 @@
 
 <script setup lang="ts">
 import { useEventBus } from '@/event';
-import { getNavigationBarHeight } from '@/helpers/helper.component';
-import { ElMessage } from 'element-plus';
+import { Message, getNavigationBarHeight } from '@/helpers/helper.component';
 import { ref } from 'vue';
 
 onMounted(() => {
@@ -37,7 +36,7 @@ const myPreview = ref<any>(null);
 
 function handleCopyCodeSuccess(_code: string) {
     // 处理复制代码成功的逻辑  
-    ElMessage.success('复制成功');
+    Message.success('复制成功');
     // ...  
 }
 

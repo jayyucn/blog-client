@@ -146,9 +146,11 @@ onErrorCaptured(() => console.log('onErrorCaptured'))
 }
 
 .blog-header-card {
-  // background-color: #f5f7fa;
+  border: 0px;
+  box-shadow: none;
+  background-color: #f7f7f7;
   display: block;
-  background: linear-gradient(to top right, #ddd, #fff);
+  @include border;
 
   .blog-title {
     //居中

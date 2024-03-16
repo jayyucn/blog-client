@@ -93,7 +93,7 @@ const tags = computed(() => article.tags.map(tag => i18n.t(`${tag.name}`)));
 .article-image {
     width: inherit;
     height: inherit;
-    padding: 2px;
+    padding: 4px;
 
     .image-slot-placeholder {
         display: flex;
@@ -138,7 +138,7 @@ const tags = computed(() => article.tags.map(tag => i18n.t(`${tag.name}`)));
         display: flex;
         justify-content: start;
         align-items: center;
-        
+
         gap: 8px;
         font-size: 14px;
         color: $text-color-weak;

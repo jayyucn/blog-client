@@ -1,24 +1,18 @@
 <script setup lang="ts">
 import HomeRight from './components/HomeRight.vue';
-// import HomeMidList from './HomeMidList.vue'
 import SideNav from './components/SideNav.vue';
-
-
 </script>
-
 
 <template>
   <div class="home">
-    <el-row class="row-bg" >
+    <el-row class="row-bg" gutter="8">
       <el-col :span="4" class="grid-content left">
         <SideNav />
       </el-col>
-      <el-divider direction="vertical" />
-      <el-col :span="15" class="grid-content mid">
-        <div class="blank-top mid"></div>
+      <el-col :span="15" class=" center">
+        <div class="blank-top"></div>
         <router-view />
       </el-col>
-      <el-divider direction="vertical" />
       <el-col :span="4" class="grid-content right">
         <HomeRight />
       </el-col>
@@ -27,8 +21,7 @@ import SideNav from './components/SideNav.vue';
 </template>
 
 <style lang="scss" scoped>
-
-.blank-top.mid {
+.blank-top {
   height: 85px;
 }
 
@@ -44,20 +37,22 @@ import SideNav from './components/SideNav.vue';
   }
 
   .row-bg {
-    // width: 100%;
-    // max-width:80%;
     display: flex;
     flex-direction: row;
     flex-grow: 1;
   }
 
-  // .left  
-  // .right 
-  // {
-  //   max-width: 300px;
-  // }
+  .left {
+    width: 300px;
+    overflow: visible;
+    display: block;
+    position: relative;
+    //固定宽度，结合下面的overflow-x: visible; 实现tags 溢出时显示
+    overflow-x: visible;
+    direction: rtl;
+  }
 
-  .grid-content.right {
+  .grid-content {
     display: flex;
     flex-direction: column;
     align-items: start;

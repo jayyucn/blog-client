@@ -13,6 +13,7 @@
     "wordcount": "本文字数"
   },
   "common": {
+    "loading": "加载中...",
     "about": "关于",
     "blog": "博客",
     "copyRight": "版权所有",
