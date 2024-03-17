@@ -27,12 +27,14 @@ import ConfigProvider from './views/ConfigProvider.vue';
 .el-container {
   min-width: 100vw;
 }
-
-.el-main {}
+.el-backtop{
+  transform: scale(1);
+}
 
 .el-header,
 .el-footer,
 .el-main {
+  padding-top: 60px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -43,17 +45,13 @@ import ConfigProvider from './views/ConfigProvider.vue';
   position: fixed !important;
   width: 100%;
   z-index: 10000;
-  border-bottom: 1px solid var(--el-border-color);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(5px);
-  background-color: $header-bg;
+ 
 }
 
 .el-footer {
   border-top: 1px solid var(--el-border-color);
 }
 
-.el-header,
 .el-footer {
   height: 60px;
   background-color: $header-bg;

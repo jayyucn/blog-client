@@ -86,7 +86,7 @@ const tags = computed(() => article.tags.map(tag => i18n.t(`${tag.name}`)));
     background-color: var(--module-bg);
     margin: 0px;
     width: 300px;
-    height: 180px;
+    height: 200px;
     @include border();
 }
 

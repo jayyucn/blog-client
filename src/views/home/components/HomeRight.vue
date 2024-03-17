@@ -1,24 +1,24 @@
 
 <script setup lang="ts">
 
-import HomeRightSearch from './HomeRightSearch.vue';
 import HomeRightTabs from './HomeRightTabs.vue';
 
 </script>
 
 <template>
-    <div class="home-right" >
-    <el-space class="home-right-container" alignment="" direction="vertical">
-            <HomeRightSearch />
-            <HomeRightTabs />
-    </el-space>
+    <div class="container">
+        <el-space class="home-right-container" alignment="" direction="vertical">
+                <HomeRightTabs />
+        </el-space>
     </div>
 </template>
 
 <style lang="scss" scoped>
-.home-right {
-    margin-top: 86px;
+.container{
+    display: flex;
+    justify-content:flex-start;
+    align-items: start;
 }
 
 </style>
-
+../../../components/HomeRightSearch.vue

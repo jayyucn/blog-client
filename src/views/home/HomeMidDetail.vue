@@ -112,8 +112,8 @@ onErrorCaptured(() => console.log('onErrorCaptured'))
 
 <style lang="scss" scoped>
 .container {
-  @include border;
   user-select: text;
+  background-color: transparent;
 }
 
 .article-info {
@@ -148,9 +148,8 @@ onErrorCaptured(() => console.log('onErrorCaptured'))
 .blog-header-card {
   border: 0px;
   box-shadow: none;
-  background-color: #f7f7f7;
   display: block;
-  @include border;
+  background-color: transparent;
 
   .blog-title {
     //居中

@@ -1,75 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>个人博客</title>
-</head>
-<body>
-  <header>
-    <nav>
-      <a href="/">主页</a>
-      <a href="/articles">文章列表</a>
-      <a href="/about">关于</a>
-    </nav>
-  </header>
-  <main>
-    <section class="articles">
-      <h2>最新文章</h2>
-      <ul>
-        <li>
-          <a href="/articles/1">标题1</a>
-          <p>摘要1</p>
-        </li>
-        <li>
-          <a href="/articles/2">标题2</a>
-          <p>摘要2</p>
-        </li>
-        <li>
-          <a href="/articles/3">标题3</a>
-          <p>摘要3</p>
-        </li>
-      </ul>
-    </section>
-    <section class="search">
-      <h2>搜索</h2>
-      <form action="/search" method="post">
-        <input type="text" name="q" placeholder="搜索">
-        <button type="submit">搜索</button>
-      </form>
-    </section>
-  </main>
-  <aside>
-    <section class="profile">
-      <h2>个人资料</h2>
-      <img src="https://avatars.githubusercontent.com/u/123456789?v=4" alt="头像">
-      <p>姓名：张三</p>
-      <p>简介：我是一名软件工程师，喜欢写作和分享知识。</p>
-    </section>
-    <section class="comments">
-      <h2>最新评论</h2>
-      <ul>
-        <li>
-          <a href="/articles/1#comment-1">评论1</a>
-          <p>评论内容1</p>
-        </li>
-        <li>
-          <a href="/articles/2#comment-2">评论2</a>
-          <p>评论内容2</p>
-        </li>
-        <li>
-          <a href="/articles/3#comment-3">评论3</a>
-          <p>评论内容3</p>
-        </li>
-      </ul>
-    </section>
-    <section class="categories">
-      <h2>分类目录</h2>
-      <ul>
-        <li><a href="/category/1">分类1</a></li>
-        <li><a href="/category/2">分类2</a></li>
-        <li><a href="/category/3">分类3</a></li>
-      </ul>
-    </section>
-  </aside>
-</body>
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>Canvas 动画背景</title>  
+    <style>  
+        body, html {  
+            margin: 0;  
+            padding: 0;  
+            overflow: hidden;  
+            width: 100%;  
+            height: 100%;  
+        }  
+        #canvas {  
+            position: fixed;  
+            top: 0;  
+            left: 0;  
+            z-index: -1;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <canvas id="canvas"></canvas>  
+    <div id="content">  
+        <!-- 在这里放置您的内容 -->  
+        <h1>欢迎来到我的网站</h1>  
+        <p>这是一个有Canvas动画背景的网页。</p>  
+    </div>  
+    <script>  
+        const canvas = document.getElementById('canvas');  
+        const ctx = canvas.getContext('2d');  
+        const particles = [];  
+  
+        canvas.width = window.innerWidth;  
+        canvas.height = window.innerHeight;  
+  
+        function createParticle() {  
+            return {  
+                x: Math.random() * canvas.width,  
+                y: Math.random() * canvas.height,  
+                size: Math.random() * 2 + 1,  
+                speedX: Math.random() * 2 - 1,  
+                speedY: Math.random() * 2 - 1,  
+            };  
+        }  
+  
+        function animate() {  
+            requestAnimationFrame(animate);  
+            ctx.clearRect(0, 0, canvas.width, canvas.height);  
+  
+            for (let i = particles.length - 1; i >= 0; i--) {  
+                const p = particles[i];  
+                ctx.beginPath();  
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);  
+                ctx.fillStyle = rgba(255, 255, 255);// `rgba(255, 255, 255, ${Math.random()})`;  
+                ctx.fill();  
+                ctx.closePath();  
+  
+                p.x += p.speedX;  
+                p.y += p.speedY;  
+  
+                if (p.x < 0 || p.x > canvas.width || p.y < 0 || p.y > canvas.height) {  
+                    particles.splice(i, 1);  
+                }  
+            }  
+  
+            if (Math.random() < 0.02) {  
+                particles.push(createParticle());  
+            }  
+        }  
+  
+        animate();  
+  
+        window.addEventListener('resize', () => {  
+            canvas.width = window.innerWidth;  
+            canvas.height = window.innerHeight;  
+        });  
+    </script>  
+</body>  
 </html>

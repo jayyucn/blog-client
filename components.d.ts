@@ -9,10 +9,12 @@ declare module 'vue' {
   export interface GlobalComponents {
     Button: typeof import('./src/components/Button/src/Button.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    HomeRightSearch: typeof import('./src/components/Search/src/Search.vue')['default']
     I18nDropdown: typeof import('./src/components/I18nDropdown/src/I18nDropdown.vue')['default']
     Logo: typeof import('./src/components/logo/src/Logo.vue')['default']
     Navigator: typeof import('./src/components/Navigator/src/Navigator.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Search: typeof import('./src/components/Search/src/Search.vue')['default']
   }
 }

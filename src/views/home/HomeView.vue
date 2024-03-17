@@ -4,59 +4,71 @@ import SideNav from './components/SideNav.vue';
 </script>
 
 <template>
-  <div class="home">
-    <el-row class="row-bg" gutter="8">
-      <el-col :span="4" class="grid-content left">
-        <SideNav />
-      </el-col>
-      <el-col :span="15" class=" center">
-        <div class="blank-top"></div>
-        <router-view />
-      </el-col>
-      <el-col :span="4" class="grid-content right">
-        <HomeRight />
-      </el-col>
-    </el-row>
+  <div class="container">
+    <div class="blank-top"></div>
+    <div class="home">
+      <SideNav class="left" />
+      <router-view class="home-center" />
+      <HomeRight class="right" />
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
 .blank-top {
-  height: 85px;
+  height: 68px;
 }
 
-@media (min-width: 1024px) {
-  .home {
-    display: flex;
-    min-height: 100%;
-    width: min(80%, 1800px);
+.home {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  resize: horizontal;
+  justify-content: space-between;
+  min-height: 100%;
+}
 
-    .el-divider {
-      height: 100%;
-    }
-  }
 
-  .row-bg {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
+
+@media screen and (max-width: 1024px) {
+  .left{
+    display: none;
   }
+  .right {
+    display: none;
+  }
+  .center{
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
 
   .left {
-    width: 300px;
-    overflow: visible;
-    display: block;
-    position: relative;
-    //固定宽度，结合下面的overflow-x: visible; 实现tags 溢出时显示
-    overflow-x: visible;
-    direction: rtl;
+    flex: 1;
+    justify-self: start;
+    left: 0px;
+    min-width: 300px;
+   
   }
-
-  .grid-content {
+  .home-center {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+  } 
+   .right {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: start;
   }
+
 }
 </style>
