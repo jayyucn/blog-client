@@ -40,7 +40,7 @@ window.addEventListener('scroll', function () {
     </el-col>
     <el-col :span="8" class="grid-content mid" />
     <el-col :span="2" class="grid-content right">
-      <el-text type @click="clickAbout"><el-icon>
+      <el-text hidden="true" type @click="clickAbout"><el-icon>
           <InfoFilled />
         </el-icon>{{ i18n.t('common.about') }}</el-text>
       <I18nDropdown />

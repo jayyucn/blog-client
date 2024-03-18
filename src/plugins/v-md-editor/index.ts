@@ -19,9 +19,6 @@ export const setupMarkdown = (app: App<Element>) => {
     codeHighlightExtensionMap: {
       vue: 'html', 
     },
-    extend(md: VMdPreview) {
-      md.set
-    }
   });
   VMdPreview.use(createMermaidPlugin());
   VMdPreview.use(createTodoListPlugin());

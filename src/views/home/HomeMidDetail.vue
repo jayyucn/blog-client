@@ -12,7 +12,9 @@ const props = defineProps<{
 
 const fetchArticleDetail = async (id: number) => {
   if (id) {
+    loading.value = true;
     await API.article.fetchAritcleDetail(id);
+    loading.value = false;
   }
 }
 
@@ -30,7 +32,7 @@ watch(
   { flush: 'post' }
 );
 
-
+const loading = ref(false);
 // 引入文章详情相关的状态和属性
 const articleDetail = computed(() => Store.articleDetail.article)
 // const {title: articleTitle, author, updated_at:updatedAt } = computed(()=> articleDetail.value).value
@@ -68,28 +70,35 @@ onErrorCaptured(() => console.log('onErrorCaptured'))
           <!-- 作者信息 -->
           <div class="author-info">
             <span class="info author-tag">
-              <el-icon> <Avatar /></el-icon> 
-              <span class="author-name">{{ articleDetail.author ||i18n.t('article.anonymous') }}</span>
+              <el-icon>
+                <Avatar />
+              </el-icon>
+              <span class="author-name">{{ articleDetail.author || i18n.t('article.anonymous') }}</span>
             </span>
           </div>
           <div class="info characters">
-            <el-tooltip class="info date" effect="dark" :content= "i18n.t('article.wordcount')" placement="bottom"><el-icon> <EditPen /></el-icon> </el-tooltip>{{ countCharacters(articleDetail.content) || 0 }}
+            <el-tooltip class="info date" effect="dark" :content="i18n.t('article.wordcount')"
+              placement="bottom"><el-icon>
+                <EditPen />
+              </el-icon> </el-tooltip>{{ countCharacters(articleDetail.content) || 0 }}
           </div>
           <!-- 发布/更新日期 -->
           <div class="info date">
-            <el-tooltip  effect="dark" :content="i18n.t('article.updated_at')" placement="bottom">
-              <el-icon> <Clock /></el-icon> 
+            <el-tooltip effect="dark" :content="i18n.t('article.updated_at')" placement="bottom">
+              <el-icon>
+                <Clock />
+              </el-icon>
             </el-tooltip>
             {{ formatToDate(articleDetail.updated_at) }}
           </div>
           <div class="info views">
-            <el-tooltip  effect="dark" :content="i18n.t('article.views')" placement="bottom">
-              <el-icon> <View /></el-icon> 
+            <el-tooltip effect="dark" :content="i18n.t('article.views')" placement="bottom">
+              <el-icon>
+                <View />
+              </el-icon>
             </el-tooltip>
-            {{ articleDetail.meta.views|| 0 }}
+            {{ articleDetail.meta.views || 0 }}
           </div>
-
-          
         </div>
       </template>
 
@@ -100,13 +109,17 @@ onErrorCaptured(() => console.log('onErrorCaptured'))
       <template #footer>
         <div class="blog-footer">
           <div class="tags" v-if="articleDetail.tags && articleDetail.tags.length > 0">
-            <el-tag v-for="(tag, index) in articleDetail.tags" :key="index" type="success" effect="dark"  round>{{ tag.name }}</el-tag>
+            <el-tag v-for="(tag, index) in articleDetail.tags" :key="index" type="success" effect="dark" round>{{
+  tag.name }}</el-tag>
           </div>
         </div>
       </template>
     </el-card>
-
-
+    <el-skeleton :loading="loading" animated :rows="10">
+      <template #default>
+        
+      </template>
+    </el-skeleton>
   </div>
 </template>
 
@@ -135,6 +148,7 @@ onErrorCaptured(() => console.log('onErrorCaptured'))
 .blog-footer {
   display: flex;
   gap: 16px;
+
   .tags {
     display: flex;
     gap: 4px;

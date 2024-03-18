@@ -15,6 +15,7 @@ import HomeRightTabs from './HomeRightTabs.vue';
 
 <style lang="scss" scoped>
 .container{
+    visibility: hidden;
     display: flex;
     justify-content:flex-start;
     align-items: start;
