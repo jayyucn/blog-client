@@ -124,7 +124,7 @@ const defaultProps = {
 
 <template>
     <div class="container">
-    <el-affix v-if="isArticle" :offset="86">
+    <el-affix v-if="isArticle" :offset="186">
         <el-tree node-key="level" :default-expanded-keys="[2, 3]" :data="titleTrees" :props="defaultProps"
             :expand-on-click-node=false @node-click="handleAnchorClick" />
         </el-affix>
@@ -132,7 +132,15 @@ const defaultProps = {
 </template>
 
 <style lang="scss" scoped>
+.container {
+    margin-left: 0px;
+    margin-top: 100px;
 
+    .el-affix{
+        margin-left: 0px;
+        position: relative;
+    }
+}
 
 .el-tree {
     min-width: 250px;

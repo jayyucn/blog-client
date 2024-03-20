@@ -49,8 +49,11 @@ import SideNav from './components/SideNav.vue';
 }
 
 @media screen and (min-width: 1024px) {
+ 
 
   .left {
+    position: relative;
+    margin-left: 0px;
     flex: 1;
     justify-self: start;
     left: 0px;

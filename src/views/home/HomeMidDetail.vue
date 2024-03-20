@@ -62,7 +62,7 @@ onErrorCaptured(() => console.log('onErrorCaptured'))
 
 <template>
   <div class="container">
-    <el-card class="blog-header-card">
+    <el-card class="blog-card">
       <!-- 博客头部区域 -->
       <template #header>
         <h1 class="blog-title">{{ articleDetail.title }}</h1>
@@ -159,10 +159,11 @@ onErrorCaptured(() => console.log('onErrorCaptured'))
   padding: 4px;
 }
 
-.blog-header-card {
+.blog-card {
   border: 0px;
   box-shadow: none;
   display: block;
+  width: 100%;
   background-color: transparent;
 
   .blog-title {
