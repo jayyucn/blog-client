@@ -1,6 +1,5 @@
-import { i18n } from '@/i18n'
 import axios, { AxiosError } from 'axios'
-import { ElLoading, ElMessage } from 'element-plus'
+import { ElMessage } from 'element-plus'
 import qs from 'qs'
 import { TRANSFORM_REQUEST_DATA } from './config'
 import { ResponseStatus, type AxiosInstance, type AxiosResponse, type InternalAxiosRequestConfig, type RequestConfig } from './types'
@@ -92,19 +91,13 @@ const service = {
       if (config.interceptors?.requestInterceptors) {
         config = config.interceptors.requestInterceptors(config as any)
       }
-      const loading = ElLoading.service({
-        text: i18n.t('common.loading'),
-        background: 'rgba(0, 0, 0, 0.1)',
-        lock: true,
-      })
+
       axiosInstance.request(config)
         .then((res) => {
           resolve(res)
-          loading.close()
         })
         .catch((err: any) => {
           reject(err)
-          loading.close()
         })
     })
   },

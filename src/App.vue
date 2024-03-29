@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue';
+import Navigator from './components/Navigator.vue';
 import { i18n } from './i18n';
 import ConfigProvider from './views/ConfigProvider.vue';
 
@@ -7,56 +8,49 @@ import ConfigProvider from './views/ConfigProvider.vue';
 
 <template>
   <ConfigProvider>
-    <el-container>
-      <ElHeader id="el-header">
-        <Navigator />
-      </ElHeader>
-      <el-main>
-        <RouterView />
-      </el-main>
-      <el-footer>{{ i18n.t('common.copyRight') }}@jayyu.cn</el-footer>
-    </el-container>
+    <div class="container">
+      <Navigator class="header" />
+      <RouterView class="main" />
+      <div class="footer">{{ i18n.t('common.copyRight') }}@jayyu.cn</div>
+    </div>
     <el-backtop :bottom="200" :right="200">
-        <Icon icon="tdesign:backtop" style="color: black" />
+      <Icon icon="tdesign:backtop" style="color: black" />
     </el-backtop>
   </ConfigProvider>
 </template>
 
 
 <style lang="scss" scoped>
-.el-container {
-  min-width: 100vw;
-}
-.el-backtop{
-  transform: scale(1);
-}
-
-.el-header,
-.el-footer,
-.el-main {
-  padding-top: 60px;
+.container {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 0px;
-}
+  flex-direction: column;
 
-.el-header {
-  position: fixed !important;
-  width: 100%;
-  z-index: 10000;
- 
-}
+  .header {
+    position: fixed !important;
+    height: var(--header-height);
+    width: 100%;
+    z-index: 500;
+  }
 
-.el-footer {
-  border-top: 1px solid var(--el-border-color);
-}
+  .main {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--header-height);
+    height: 100%;
+    width: 100%;
+  }
 
-.el-footer {
-  height: 60px;
-  background-color: $header-bg;
-  color: var(--el-text-color-primary);
-  align-items: center;
-  text-align: center;
+  .footer {
+    background-color: transparent;
+    border-top: 1px solid var(--el-border-color);
+    height: var(--header-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .el-backtop {
+    transform: scale(1);
+  }
 }
 </style>

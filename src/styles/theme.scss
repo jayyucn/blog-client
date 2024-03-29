@@ -14,7 +14,7 @@
 
 @mixin appLightTheme() {
   @include css-var(
-    $theme-text: rgba(#000, 0.68), 
+    $theme-text: rgba(#000, 0.8), 
     $theme-bg: #fff,
     // $theme-header-bg: rgba(#e3e3e3, 0.9),
   );

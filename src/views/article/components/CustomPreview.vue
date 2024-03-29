@@ -1,10 +1,13 @@
 <template>
-    <v-md-preview :text="text" ref="myPreview" id="preview" @copy-code-success="handleCopyCodeSuccess" />
+    <v-md-preview :text="text" style="font-size: 40px;" ref="myPreview" id="preview" @copy-code-success="handleCopyCodeSuccess" />
 </template>
 
 <style  lang="scss" scoped>
 .preview {
-    background-color: transparent ;
+    background-color: transparent;
+}
+.vuepress-markdown-body{
+    font-size: 40px;
 }
 
 </style>
@@ -12,11 +15,24 @@
 <script setup lang="ts">
 import { useEventBus } from '@/event';
 import { Message, getNavigationBarHeight } from '@/helpers/helper.component';
-import { ref } from 'vue';
+import { nextTick, onMounted, ref } from 'vue';
 
 onMounted(() => {
   nextTick(() => {
-    (document.getElementsByClassName('vuepress-markdown-body').item(0) as HTMLElement).style.background = 'transparent';
+    const style =( document.getElementsByClassName('vuepress-markdown-body').item(0) as HTMLElement).style;
+    style.background = 'transparent';
+    style.fontSize = '20px';
+    style.fontStyle = 'normal';
+    style.fontWeight = '400';
+    style.wordBreak = 'break-word';
+    style.overflowWrap = 'break-word';
+     /***
+      * John McWade美国设计师、教师、作家；创办Before & After杂志在他讲的关于一行是多少为最佳效果： 
+      * 一行能够很轻松的都下来是25个字。 
+      * 易读的文本一般30~80字符/行，包括标点。
+      * 多行文本35~45；最多为65。*/
+    style.maxWidth = '680px';
+    style.minWidth = '0px';
   })
 })
 

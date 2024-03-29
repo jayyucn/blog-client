@@ -1,15 +1,13 @@
-import './assets/main.css'
-
 import App from './App.vue'
 
-import { setupGlobalComponents } from '@/components/index'
-import { setupI18n } from '@/i18n'
-import { setupStore } from '@/stores'
 import ElementPlus from 'element-plus'
 import { createApp } from 'vue'
+import { setupGlobalComponents } from './components/index'
+import { setupI18n } from './i18n'
 import API from './net/api'
 import { setupMarkdown } from './plugins/v-md-editor'
 import { setupRouter } from './router'
+import { setupStore } from './stores'
 
 const setupAll = async () => {
   const app = createApp(App)

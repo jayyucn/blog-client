@@ -1,7 +1,10 @@
 <script lang="ts" setup>
 
+import Search from '@/components/Search.vue';
 import { i18n } from '@/i18n';
 import { router } from '@/router';
+import I18nDropdown from './I18nDropdown/src/I18nDropdown.vue';
+import Logo from './Logo.vue';
 
 function clickHome() {
   router.replace('/')
@@ -35,8 +38,8 @@ window.addEventListener('scroll', function () {
   <el-row class="navbar" justify="space-between">
 
     <el-col :span="6" class="grid-content left">
-      <Logo @click="clickHome" />
-      <Search />
+      <Logo @click="clickHome" class="logo"/>
+      <Search class="search" />
     </el-col>
     <el-col :span="8" class="grid-content mid" />
     <el-col :span="2" class="grid-content right">
@@ -53,11 +56,19 @@ window.addEventListener('scroll', function () {
 .navbar {
   width: 100%;
   height: 100%;
-  border-bottom: 1px solid var(--el-border-color);
+  border-bottom: 1px solid#f2f2f2;
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(5px);
   background-color: $header-bg;
   transition: top 0.5s ease-in-out;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.search{
+  height: calc(var(--header-height) - 18px);
 }
 
 .navbar.hidden {
@@ -83,9 +94,6 @@ window.addEventListener('scroll', function () {
 
 }
 
-// .mid {
-//   user-select: none;
-// }
 
 .el-menu {
   display: flex;

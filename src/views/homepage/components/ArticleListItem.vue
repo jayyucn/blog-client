@@ -3,6 +3,7 @@ import type ArticleBrief from "@/data/article/article.brief";
 import { i18n } from "@/i18n";
 import { getArticleDetailRoute } from '@/transforms/transform.route';
 import { formatTime } from "@/utils";
+import { computed } from "vue";
 
 const { article } = defineProps<{
     article: ArticleBrief
