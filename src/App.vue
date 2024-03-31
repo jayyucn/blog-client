@@ -10,10 +10,12 @@ import ConfigProvider from './views/ConfigProvider.vue';
   <ConfigProvider>
     <div class="container">
       <Navigator class="header" />
-      <RouterView class="main" />
-      <div class="footer">{{ i18n.t('common.copyRight') }}@jayyu.cn</div>
+      <div class="content">
+        <RouterView class="main" />
+        <div class="footer">{{ i18n.t('common.copyRight') }}@jayyu.cn</div>
+      </div>
     </div>
-    <el-backtop :bottom="200" :right="200">
+    <el-backtop :bottom="40" :right="40">
       <Icon icon="tdesign:backtop" style="color: black" />
     </el-backtop>
   </ConfigProvider>
@@ -24,6 +26,7 @@ import ConfigProvider from './views/ConfigProvider.vue';
 .container {
   display: flex;
   flex-direction: column;
+  height: 100vh;
 
   .header {
     position: fixed !important;
@@ -32,12 +35,19 @@ import ConfigProvider from './views/ConfigProvider.vue';
     z-index: 500;
   }
 
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+
   .main {
     display: flex;
     justify-content: center;
     margin-top: var(--header-height);
     height: 100%;
     width: 100%;
+    // background-color: #000;
+    min-height: calc( 100vh - var(--header-height) *2);
   }
 
   .footer {

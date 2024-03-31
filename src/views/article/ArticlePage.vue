@@ -16,13 +16,11 @@
         <h1 class="blog-title">{{ articleDetail.title }}</h1>
         <div class="article-info">
           <!-- 作者信息 -->
-          <div class="author-info">
-            <span class="info author-tag">
-              <el-icon>
-                <Avatar />
-              </el-icon>
-              <span class="author-name">{{ articleDetail.author || i18n.t('article.anonymous') }}</span>
-            </span>
+          <div class="info author-info">
+            <el-icon>
+              <Avatar />
+            </el-icon>
+            <div class="author-name">{{ articleDetail.author || i18n.t('article.anonymous') }}</div>
           </div>
           <div class="info characters">
             <el-tooltip class="info date" effect="dark" :content="i18n.t('article.wordcount')"
@@ -70,9 +68,10 @@ import API from '@/net/api';
 import Store from '@/stores';
 import { countCharacters } from '@/utils/util.string';
 import { formatToDate } from '@/utils/util.time';
-import { computed, onBeforeMount, onUnmounted, ref, watch } from 'vue';
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 import ArticleNav from './components/ArticleNav.vue';
 import CustomPreview from './components/CustomPreview.vue';
+
 
 const props = defineProps<{
   articleId: number
@@ -94,9 +93,9 @@ const fetchArticleDetail = async (id: number) => {
   }
 }
 
-onBeforeMount(() => {
-  console.log('onBeforeMount', props.articleId);
-  fetchArticleDetail(props.articleId);
+
+onMounted(() => {
+  window.scrollTo(0, 0);
 })
 
 onUnmounted(() => {
@@ -108,10 +107,15 @@ onUnmounted(() => {
 watch(
   () => props.articleId,
   (id) => {
-    console.log('articleId changed:', id);
     fetchArticleDetail(id);
   },
-  { flush: 'post' }
+  {
+    flush: 'post',
+    /** watch 默认是懒执行的：仅当数据源变化时，才会执行回调。
+     * immediate选项会在创建侦听器时，立即执行一遍回调。
+     */
+    immediate: true 
+  }
 );
 
 
@@ -126,14 +130,22 @@ function toggleNav() {
 <style lang="scss" scoped>
 .article-detail {
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   align-items: start;
+  font-size: 14px;
 }
 
 .article-nav {
   position: fixed;
   width: 200px;
-  height: 1000px;
+  top: 10%;
+  height: 80%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE 10+ */
   left: 0;
   display: flex;
   justify-content: flex-start;
@@ -157,9 +169,9 @@ function toggleNav() {
   flex: 1;
   flex-direction: column;
   align-items: center;
+  width: var(--content-max-width, 680px);
   user-select: text;
   background-color: transparent;
-
 }
 
 .article-info {
@@ -167,7 +179,10 @@ function toggleNav() {
   justify-content: center;
   align-items: center;
   gap: 16px;
+  line-height: 20px;
+  // font-size: 0.58em;
   font-size: 14px;
+  // font-weight: 400;
   color: $text-color-weak;
 
   .info {
@@ -179,8 +194,7 @@ function toggleNav() {
 }
 
 .header {
-  font-size: 24px;
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 

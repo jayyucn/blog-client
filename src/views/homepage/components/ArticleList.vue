@@ -3,7 +3,7 @@ import { i18n } from '@/i18n';
 import API from '@/net/api';
 import type { ArticlePaginateQueryDTO } from '@/net/api/article';
 import Store from '@/stores';
-import { computed, onBeforeMount, ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import ArticleListItem from './ArticleListItem.vue';
 
 const props = defineProps<{
@@ -13,14 +13,10 @@ const props = defineProps<{
   date?: string
 }>()
 
-onBeforeMount(() => {
-  fetchArticles()
-  watch(
-    () => props,
-    () => fetchArticles(),
-    { flush: 'post', deep: true }
-  )
-})
+const articles = computed(() => Store.articleList.getArticleList || [])
+const currentPage = ref(Store.articleList.pagination.current_page)
+const pageSize = ref(Store.articleList.pagination.page_size)
+const totalCount = computed(() => Store.articleList.getTotalCount)
 
 const fetchArticles = (page: number = 0, page_size: number = 0) => {
   const param: ArticlePaginateQueryDTO = {
@@ -29,18 +25,26 @@ const fetchArticles = (page: number = 0, page_size: number = 0) => {
   }
   API.article.fetchAritcleList(param)
 }
-const articles = computed(() => Store.articleList.getArticleList || [])
-const currentPage = ref(Store.articleList.pagination.current_page)
-const pageSize = ref(Store.articleList.pagination.page_size)
-const totalCount = computed(() => Store.articleList.getTotalCount)
+
+watch(
+  () => props,
+  () => {
+      fetchArticles();
+  },
+  {
+    flush: 'post',
+    immediate: true
+  }
+);
+
 const handleSizeChange = (val: number) => {
   fetchArticles(0, val)
 }
+
 const handleCurrentChange = (page: number) => {
   fetchArticles(page)
   console.log(`current page: ${page}`)
 }
-
 </script>
 
 <template>

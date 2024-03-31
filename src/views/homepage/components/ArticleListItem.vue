@@ -86,8 +86,8 @@ const tags = computed(() => article.tags.map(tag => i18n.t(`${tag.name}`)));
 .article-imag-div {
     background-color: var(--module-bg);
     margin: 0px;
-    width: 300px;
-    height: 200px;
+    width: 120px;
+    height: 80px;
     @include border();
 }
 
