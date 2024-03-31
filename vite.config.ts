@@ -24,7 +24,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   }
   console.log('env: ', env)
   return {
-    base: './',
+    base: '/',
     assetsInclude: ['@/i18n/locales /*.json'],
     plugins: [
       vue(),
