@@ -15,13 +15,13 @@ const props = defineProps<{
 
 const articles = computed(() => Store.articleList.getArticleList || [])
 const currentPage = ref(Store.articleList.pagination.current_page)
-const pageSize = ref(Store.articleList.pagination.page_size)
+const defaultPageSize = ref(Store.articleList.pagination.page_size)
 const totalCount = computed(() => Store.articleList.getTotalCount)
 
-const fetchArticles = (page: number = 0, page_size: number = 0) => {
+const fetchArticles = (page: number = 0, pageSize: number = 0) => {
   const param: ArticlePaginateQueryDTO = {
     page: page || currentPage.value,
-    page_size: page_size || pageSize.value
+    page_size: pageSize || defaultPageSize.value
   }
   API.article.fetchAritcleList(param)
 }
@@ -29,7 +29,7 @@ const fetchArticles = (page: number = 0, page_size: number = 0) => {
 watch(
   () => props,
   () => {
-      fetchArticles();
+    fetchArticles();
   },
   {
     flush: 'post',
@@ -53,9 +53,10 @@ const handleCurrentChange = (page: number) => {
       <article-list-item v-for="(article, idx) in articles" :key="idx" :article="article" class="list-item"
         :class="idx" />
       <div class="pagination-container">
-        <el-pagination v-model:current-page="currentPage" v-model:page-size="pageSize" :page-sizes="[10, 20, 30, 40]"
-          :small="false" :disabled="false" :background="true" layout="sizes, total, prev, pager, next, jumper"
-          :total="totalCount" @size-change="handleSizeChange" @current-change="handleCurrentChange" />
+        <el-pagination v-model:current-page="currentPage" v-model:page-size="defaultPageSize"
+          :page-sizes="[10, 20, 30, 40]" :small="false" :disabled="false" :background="true"
+          layout="sizes, total, prev, pager, next, jumper" :total="totalCount" @size-change="handleSizeChange"
+          @current-change="handleCurrentChange" />
       </div>
     </div>
     <div v-else class="empty-list">

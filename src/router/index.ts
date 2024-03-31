@@ -5,7 +5,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 /// 核心页面
 // 主页面
 import ArticlePage from '@/views/article/ArticlePage.vue'
-import HomeMidList from '@/views/home/HomeMidList.vue'
 import Homepage from '@/views/homepage/Homepage.vue'
 
  export const router = createRouter({
@@ -14,13 +13,7 @@ import Homepage from '@/views/homepage/Homepage.vue'
     {
       path: '/',
       name: i18n.t('common.home'),
-      component: Homepage,
-      children: [
-          {
-            path:'/',
-            component: HomeMidList,
-          },
-      ]
+      component: Homepage
     },
     {
       path: '/article/:articleId',

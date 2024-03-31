@@ -1,0 +1,20 @@
+{
+    "version": 2,
+    "installCommand": "pnpm install",
+    "outputDirectory": "dist",
+    "builds": [
+        { "src": "src/main.ts", "use": "@vercel/node" }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "headers": {
+                "cache-control": "no-cache, no-store, must-revalidate",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Credentials": "true",
+                "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT"
+              },
+            "dest": "dist/$1"
+        }
+    ]
+}

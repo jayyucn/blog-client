@@ -6,7 +6,7 @@ import { ResponseStatus, type AxiosInstance, type AxiosResponse, type InternalAx
 
 
 const abortControllerMap: Map<string, AbortController> = new Map()
-let baseUrl = 'api.jayyu.cn';//PATH_URL
+let baseUrl = process.env.BASE_URL;// 'api.jayyu.cn';//PATH_URL
 // baseUrl.startsWith('http://') ? baseUrl : baseUrl = 'http://' + baseUrl
 baseUrl.startsWith('https://') ? baseUrl : baseUrl = 'https://' + baseUrl
 const axiosInstance: AxiosInstance = axios.create({

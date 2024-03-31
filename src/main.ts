@@ -24,7 +24,6 @@ const setupAll = async () => {
   //路由模块
   setupRouter(app)
 
-
   app.mount('#app')
 }
 
