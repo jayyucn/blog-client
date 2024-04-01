@@ -169,7 +169,7 @@ function toggleNav() {
   flex: 1;
   flex-direction: column;
   align-items: center;
-  width: var(--content-max-width, 680px);
+  width: $g-content-max-width;
   user-select: text;
   background-color: transparent;
 }

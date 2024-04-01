@@ -38,7 +38,7 @@ window.addEventListener('scroll', function () {
   <el-row class="navbar" justify="space-between">
 
     <el-col :span="6" class="grid-content left">
-      <Logo @click="clickHome" class="logo"/>
+      <Logo @click="clickHome" class="logo" />
       <Search class="search" />
     </el-col>
     <el-col :span="8" class="grid-content mid" />
@@ -54,20 +54,20 @@ window.addEventListener('scroll', function () {
 
 <style lang="scss" scoped>
 .navbar {
-  width: 100%;
-  height: 100%;
-  border-bottom: 1px solid#f2f2f2;
+  height: var(--header-height);
+  padding: 0 24px;
+  border-bottom: var(--g-solid-border);
+  align-items: center;
+  display: flex;
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(5px);
-  background-color: $header-bg;
-  transition: top 0.5s ease-in-out;
 }
 
 .logo {
   cursor: pointer;
 }
 
-.search{
+.search {
   height: calc(var(--header-height) - 18px);
 }
 

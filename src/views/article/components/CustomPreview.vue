@@ -5,22 +5,22 @@
 <style  lang="scss" scoped>
 .preview {
     background-color: transparent;
-    width: auto;
+    // width: auto;
 }
 // .vuepress-markdown-body{
 //     width: auto;
 // }
 
-@media screen and (max-width: 680px){
-    .preview{
-        max-width: var(--content-max-width); 
-        width: auto;
-    }
-    .vuepress-markdown-body {
+@media screen and (max-width: $g-content-max-width){
+    // .preview{
+    //     max-width: $g-content-max-width; 
+    //     width: auto;
+    // }
+    // .vuepress-markdown-body {
         
-        max-width: var(--content-max-width); 
-        width: auto;
-    }
+    //     max-width: $g-content-max-width; 
+    //     width: auto;
+    // }
 }
 
 </style>
@@ -39,14 +39,13 @@ onMounted(() => {
     style.fontWeight = '400';
     style.wordBreak = 'break-word';
     style.overflowWrap = 'break-word';
-    style.width = "680px";//'var(--content-max-width)';
+    style.maxWidth = '680px';// '$g-content-max-width';
+    style.minWidth = '0px';
      /***
       * John McWade美国设计师、教师、作家；创办Before & After杂志在他讲的关于一行是多少为最佳效果： 
       * 一行能够很轻松的都下来是25个字。 
       * 易读的文本一般30~80字符/行，包括标点。
       * 多行文本35~45；最多为65。*/
-    //  style.width = 'var(--content-max-width)';
-    //  style.minWidth = '0';
 
   })
 })

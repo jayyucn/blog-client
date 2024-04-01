@@ -24,30 +24,21 @@ import ConfigProvider from './views/ConfigProvider.vue';
 
 <style lang="scss" scoped>
 .container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+  display: block;
+  // flex-direction: column;
+  // height: 100vh;
 
   .header {
-    position: fixed !important;
-    height: var(--header-height);
-    width: 100%;
+    transform: translateY(0px);
     z-index: 500;
+    top: 0;
+    position: sticky;
   }
 
   .content {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .main {
-    display: flex;
-    justify-content: center;
-    margin-top: var(--header-height);
-    height: 100%;
-    width: 100%;
-    // background-color: #000;
-    min-height: calc( 100vh - var(--header-height) *2);
+    max-width: 1336px;
+    margin: auto;
+    display: block;
   }
 
   .footer {
