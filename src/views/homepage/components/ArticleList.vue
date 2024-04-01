@@ -77,7 +77,6 @@ const handleCurrentChange = (page: number) => {
 }
 
 .list-item {
-  @include border();
   margin-top: $margin-default;
 }
 </style>

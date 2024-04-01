@@ -58,8 +58,8 @@ const tags = computed(() => article.tags.map(tag => i18n.t(`${tag.name}`)));
 <style lang="scss" scoped>
 .article-list-item {
     display: flex;
-    background-color: var(--module-bg-light);
-    border: 1px solid var(--el-border-color);
+    max-height: 450px;
+    border-bottom: var(--g-solid-border);
 
     .article-flags {
         display: block;

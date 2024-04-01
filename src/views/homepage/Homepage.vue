@@ -1,7 +1,7 @@
 <template>
   <div class="homepage-container">
     <main class="left">
-      <article-list />
+      <home-main />
     </main>
 
     <div class="right">
@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 
-import ArticleList from './components/ArticleList.vue';
+import HomeMain from './components/HomeMain.vue';
 import ReadingList from './components/ReadingList.vue';
 import RecommendTopic from './components/RecommendTopic.vue';
 import Tags from './components/Tags.vue';
@@ -43,19 +43,7 @@ $ratio: 61.5%;
   padding-right: 24px; //var(--g-layout-gap);
   box-sizing: border-box;
   display: none;
-  // padding-left: var(--g-layout-gap);
-  // background-color: green;
 }
-
-// @media (max-width: $g-content-max-width) {
-//   .left {
-//     width: 100%;
-//   }
-//   .right {
-//     display: none;
-
-//   }
-// }
 
 @media(max-width: 551.98px) {}
 
