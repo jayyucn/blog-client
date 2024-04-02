@@ -23,7 +23,6 @@ import Tags from './components/Tags.vue';
 
 
 <style lang="scss" scoped>
-$ratio: 61.5%;
 
 .homepage-container {
   justify-content: space-evenly;

@@ -35,20 +35,19 @@ window.addEventListener('scroll', function () {
 </script>
 
 <template>
-  <el-row class="navbar" justify="space-between">
+  <div class="navbar">
 
-    <el-col :span="6" class="grid-content left">
+    <div class="left">
       <Logo @click="clickHome" class="logo" />
       <Search class="search" />
-    </el-col>
-    <el-col :span="8" class="grid-content mid" />
-    <el-col :span="2" class="grid-content right">
+    </div>
+    <div class="grid-content right">
       <el-text hidden="true" type @click="clickAbout"><el-icon>
           <InfoFilled />
         </el-icon>{{ i18n.t('common.about') }}</el-text>
       <I18nDropdown />
-    </el-col>
-  </el-row>
+    </div>
+  </div>
 </template>
 
 
@@ -61,53 +60,26 @@ window.addEventListener('scroll', function () {
   display: flex;
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(5px);
-}
 
-.logo {
-  cursor: pointer;
-}
+  &.hidden {
+    top: -60px;
+    /* 或者其他你想要隐藏导航栏时使用的值 */
+  }
 
-.search {
-  height: calc(var(--header-height) - 18px);
-}
+  .left {
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
 
-.navbar.hidden {
-  top: -60px;
-  /* 或者其他你想要隐藏导航栏时使用的值 */
-}
+    .logo {
+      cursor: pointer;
+    }
 
-.left {
-  margin-left: 30px;
-  justify-content: start;
-}
-
-.right {
-  margin-right: 30px;
-  justify-content: end;
-}
-
-.left,
-.right {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-
+    .search {
+      height: calc(var(--header-height) - 18px);
+    }
+  }
 }
 
 
-.el-menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent !important;
-  // border-bottom: solid 1px #f00;
-}
-
-.router:hover {
-  background-color: transparent !important;
-}
-
-.el-menu-item {
-  background-color: inherit !important;
-}
 </style>

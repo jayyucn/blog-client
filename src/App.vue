@@ -15,7 +15,7 @@ import ConfigProvider from './views/ConfigProvider.vue';
         <div class="footer">{{ i18n.t('common.copyRight') }}@jayyu.cn</div>
       </div>
     </div>
-    <el-backtop :bottom="40" :right="40">
+    <el-backtop :bottom="20" :right="40">
       <Icon icon="tdesign:backtop" style="color: black" />
     </el-backtop>
   </ConfigProvider>
@@ -25,8 +25,6 @@ import ConfigProvider from './views/ConfigProvider.vue';
 <style lang="scss" scoped>
 .container {
   display: block;
-  // flex-direction: column;
-  // height: 100vh;
 
   .header {
     transform: translateY(0px);

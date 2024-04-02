@@ -37,7 +37,7 @@ const setLang = (lang: LocaleType) => {
   <el-dropdown :class="prefixCls" trigger="click" placement="top-start"  @command="setLang">
     <span class="el-dropdown-link">
       {{ currentLang.name }}
-      <Icon icon="iconoir:language" class="Icon" width="28"  :inline="true" />
+      <Icon icon="iconoir:language" class="Icon r" width="28"  :inline="true" />
     </span>
     <template #dropdown>
       <el-dropdown-menu>
@@ -50,7 +50,9 @@ const setLang = (lang: LocaleType) => {
 </template>
 
 <style scoped>
-
+.r {
+    color: rgba(41, 41, 41, 1);
+}
 .el-dropdown{
   /* width: 40px; */
   margin-left: 15px;

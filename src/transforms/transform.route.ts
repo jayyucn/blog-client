@@ -20,7 +20,7 @@ export const getDateFlowRoute = (date: string) => {
   return `/date/${date}`
 }
 
-export const getArticleDetailRoute = (articleId: string | number) => {
+export const getArticlePageRoute = (articleId: string | number) => {
   return `/article/${articleId}`
 }
 
