@@ -22,7 +22,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   } else {
     env = loadEnv(mode, root)
   }
-  console.log('env: ', mode)
+  console.log('env: ', env)
   return {
     base: '/',
     assetsInclude: ['@/i18n/locales /*.json'],
