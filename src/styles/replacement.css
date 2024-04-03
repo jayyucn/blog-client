@@ -1,3 +1,11 @@
+
+
+/** 修改element样式&颜色 */
+:root {
+    --el-color-primary:#000!important;
+    --el-color-error:red!important;
+}
+
 .el-input__wrapper {
     background-color: #f9f9f9;
     border-radius: 20px !important;
@@ -11,4 +19,23 @@
 
 .el-input__wrapper.is-focus {
     box-shadow: none
+}
+
+/** markdown 样式修改 **/
+.vuepress-markdown-body {
+    background: transparent !important;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 680px;
+    min-width: 680px;
+}
+@media (max-width: 680px){
+    .vuepress-markdown-body {
+        max-width: calc(680px, 94vw);
+        min-width: 0;
+        width: 94vw;
+    }
 }

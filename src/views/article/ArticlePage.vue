@@ -1,61 +1,58 @@
 <template>
-  <div class="article-detail">
-    <div class="article-nav">
-      <!-- 左侧文章目录导航 -->
-      <div class="nav-toggle" @click="toggleNav">
-        <i class="iconfont icon-menu"></i>
+  <div class="article-container">
+    <div class="navigation-panel">
+      <div class="navigation-toggle" @click="toggleNav">
+        <!-- <i class="iconfont icon-menu">{{ navToggle ? "<<<" : ">>>" }}</i> -->
       </div>
-      <div v-if="navToggle" class="nav-list">
-        <!-- 文章目录列表 -->
-        <ArticleNav :content="content" />
+      <div class="navigation-list">
+        <!-- v-show="navToggle" -->
+        <ArticleNav :content="article.content" />
       </div>
     </div>
-    <div class="article-content">
-      <div class="header">
-        <!-- 文章标题 -->
-        <h1 class="blog-title">{{ articleDetail.title }}</h1>
-        <div class="article-info">
-          <!-- 作者信息 -->
-          <div class="info author-info">
+    <div class="article-main">
+      <div class="article-header">
+        <h1 class="article-title">{{ article.title }}</h1>
+        <div class="article-metadata">
+          <div class="metadata-item author">
             <el-icon>
               <Avatar />
             </el-icon>
-            <div class="author-name">{{ articleDetail.author || i18n.t('article.anonymous') }}</div>
+            <div class="author-name">{{ article.author || i18n.t('article.anonymous') }}</div>
           </div>
-          <div class="info characters">
-            <el-tooltip class="info date" effect="dark" :content="i18n.t('article.wordcount')"
-              placement="bottom"><el-icon>
+          <div class="metadata-item word-count">
+            <el-tooltip class="item-tooltip" effect="dark" :content="i18n.t('article.wordcount')" placement="bottom">
+              <el-icon>
                 <EditPen />
-              </el-icon> </el-tooltip>{{ countCharacters(articleDetail.content) || 0 }}
+              </el-icon>
+            </el-tooltip>
+            {{ countCharacters(article.content) || 0 }}
           </div>
-          <!-- 发布/更新日期 -->
-          <div class="info date">
+          <div class="metadata-item updated-date">
             <el-tooltip effect="dark" :content="i18n.t('article.updated_at')" placement="bottom">
               <el-icon>
                 <Clock />
               </el-icon>
             </el-tooltip>
-            {{ formatToDate(articleDetail.updated_at) }}
+            {{ formatToDate(article.updated_at) }}
           </div>
-          <div class="info views">
+          <div class="metadata-item views">
             <el-tooltip effect="dark" :content="i18n.t('article.views')" placement="bottom">
               <el-icon>
                 <View />
               </el-icon>
             </el-tooltip>
-            {{ articleDetail.meta.views || 0 }}
+            {{ article.meta.views || 0 }}
           </div>
         </div>
       </div>
-      <div class="content">
-        <!-- 文章内容 -->
-        <CustomPreview class="preview" :text="content" />
+      <div class="article-body">
+        <CustomPreview class="article-preview" :text="article.content" />
       </div>
-      <div class="footer">
-        <!-- 文章底部 -->
-        <div class="tags" v-if="articleDetail.tags && articleDetail.tags.length > 0">
-          <el-tag v-for="(tag, index) in articleDetail.tags" :key="index" type="success" effect="dark" round>{{
-        tag.name }}</el-tag>
+      <div class="article-footer">
+        <div class="article-tags" v-if="article.tags && article.tags.length > 0">
+          <el-tag v-for="(tag, index) in article.tags" :key="index" type="success" effect="dark" round>
+            {{ tag.name }}
+          </el-tag>
         </div>
       </div>
     </div>
@@ -64,35 +61,20 @@
 
 <script lang="tsx" setup>
 import { i18n } from '@/i18n';
-import API from '@/net/api';
 import Store from '@/stores';
 import { countCharacters } from '@/utils/util.string';
 import { formatToDate } from '@/utils/util.time';
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
+import { ElMessage } from 'element-plus';
+import { onMounted, onUnmounted, ref, watch } from 'vue';
 import ArticleNav from './components/ArticleNav.vue';
 import CustomPreview from './components/CustomPreview.vue';
-
 
 const props = defineProps<{
   articleId: number
 }>()
-
-const articleDetail = computed(() => Store.articleDetail.article)
-
-
-const content = computed(() => {
-  return Store.articleDetail.getContent;
-}) // 文章内容
-
+const articleDetail = Store.articleDetail;
+const article = articleDetail.article;
 const loading = ref(false);
-const fetchArticleDetail = async (id: number) => {
-  if (id) {
-    loading.value = true;
-    await API.article.fetchAritcleDetail(id);
-    loading.value = false;
-  }
-}
-
 
 onMounted(() => {
   window.scrollTo(0, 0);
@@ -101,107 +83,141 @@ onMounted(() => {
 onUnmounted(() => {
   console.log('onUnmounted')
   // 清除文章详情相关的状态和属性 
-  Store.articleDetail.clearArticleDetail()
+  articleDetail.clearArticleDetail()
 })
 
 watch(
   () => props.articleId,
-  (id) => {
-    fetchArticleDetail(id);
+  async (id) => {
+    if (!id) return
+    loading.value = true;
+    await articleDetail.fetchArticleDetail(id);
+    loading.value = false;
   },
   {
     flush: 'post',
-    /** watch 默认是懒执行的：仅当数据源变化时，才会执行回调。
-     * immediate选项会在创建侦听器时，立即执行一遍回调。
-     */
-    immediate: true 
+    immediate: true
   }
 );
 
-
 const navToggle = ref(true);// 控制左侧导航的显示与隐藏
-
 function toggleNav() {
+  ElMessage.info(`点击了切换导航按钮 ${navToggle.value}`);
   navToggle.value = !navToggle.value;
 }
 
 </script>
 
 <style lang="scss" scoped>
-.article-detail {
+.article-container {
+  justify-content: space-evenly;
   display: flex;
-  // justify-content: center;
-  align-items: start;
-  font-size: 14px;
-}
-
-.article-nav {
-  position: fixed;
-  width: 200px;
-  top: 10%;
-  height: 80%;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  scrollbar-width: none;
+  scrollbar-width: thin;
   /* Firefox */
-  -ms-overflow-style: none;
-  /* IE 10+ */
-  left: 0;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  z-index: 100;
-}
-
-.footer {
-  display: flex;
-  align-items: start;
-  gap: 16px;
-
-  .tags {
-    display: flex;
-    gap: 4px;
-  }
-}
-
-.article-content {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
+  // scrollbar-color: #888 #f7f7f7; /* Firefox */
   align-items: center;
-  width: $g-content-max-width;
+  flex-direction: row;
   user-select: text;
-  background-color: transparent;
-}
 
-.article-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  line-height: 20px;
-  // font-size: 0.58em;
-  font-size: 14px;
-  // font-weight: 400;
-  color: $text-color-weak;
+  .navigation-panel {
+    position: fixed;
+    width: 200px;
+    top: 10%;
+    height: 80%;
+    overflow-y: auto;
+    left: 0;
+    transition: transform 0.3s ease;
+    scrollbar-width: thin;
+    /* Firefox */
+    -ms-overflow-style: none;
 
-  .info {
+    /* IE and Edge */
+    &::-webkit-scrollbar {
+      width: 8px;
+      /* width of the entire scrollbar */
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f7f7f7;
+      /* color of the tracking area */
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #888;
+      /* color of the scroll thumb */
+      border-radius: 8px;
+      /* roundness of the scroll thumb */
+    }
+
+    &.is-active {
+      transform: translateX(0);
+    }
+  }
+
+  .article-main {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    gap: 4px;
+    max-width: $g-content-max-width;
+
+    .article-body {
+      display: block;
+    }
+
+    .article-header,
+    .article-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .article-header {
+      text-align: center;
+
+      .article-title {
+        padding: 0 20px;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .article-metadata {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 14px;
+
+        .metadata-item {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+        }
+      }
+    }
+
+    .article-footer.article-tags {
+      flex-wrap: wrap;
+      gap: 10px;
+    }
   }
 }
 
-.header {
-  font-weight: 700;
-  margin-bottom: 20px;
+@media (max-width: $g-screen-width728) {
+
+  .article-main {
+    // margin-left: 0;
+    width: 100%;
+  }
+
 }
 
+@media (max-width: $g-screen-width1080) {
+  .article-container {
+    flex-direction: column;
+  }
 
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  // 在这里添加你的样式
+  .navigation-panel {
+    display: none;
+  }
 }
 </style>

@@ -29,11 +29,6 @@
   </el-anchor>
 </template>
 <style lang="scss" scoped>
-@media (max-width: 1230px) {
-  .el-anchor {
-    display: none;
-  }
-}
 .el-anchor {
     background-color: transparent;
   }

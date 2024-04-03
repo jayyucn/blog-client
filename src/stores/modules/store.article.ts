@@ -1,7 +1,10 @@
 import type ArticleBrief from '@/data/article/article.brief';
 import type ArticleDetail from '@/data/article/article.detail';
 import type { Pagination, PaginationList } from '@/interfaces/interface.common';
+import API from '@/net/api';
+import { ResponseStatus } from '@/net/http/types';
 import { deepClone } from '@/utils/util.object';
+import * as lodash from 'lodash';
 import { defineStore } from 'pinia';
 
 interface ArticleDetailState {
@@ -33,60 +36,24 @@ const defaultArticle: ArticleDetail = {
 }
 
 export const useArticleDetailStore = defineStore('articleDetail', {
-  state: (): ArticleDetailState => {
-    return {
-      article: deepClone(defaultArticle),
-    }
-  },
-  getters: {
-
-    hasTagName(): boolean {
-      if (!this.article || !this.article.content) {
-        return false
-      }
-      // 正则表达式匹配 Markdown 中的 h1-h6 标题  
-      const markdownHeadingRegex = /^(#{1,6})\s(.+)$/gm;
-      // 检查 Markdown 标题  
-      if (markdownHeadingRegex.test(this.article.content)) {
-        return true;
-      }
-      // 检查 HTML 中的 h1-h6 标题  
-      const htmlHeadingRegex = /<h[1-6]>[\s\S]*?<\/h[1-6]>/gm;
-      // 如果 Markdown 中没有标题，检查 HTML  
-      return htmlHeadingRegex.test(this.article.content);
-    },
-
-    getArticle(): ArticleDetail {
-      return this.article
-    },
-    getTitle(): string {
-      return this.article.title
-    },
-
-    getAuthor(): string {
-      return this.article.author
-    },
-    getUpdatedAt(): string {
-      return this.article.updated_at
-    },
-    getCreateAt(): string {
-      return this.article.created_at
-    },
-
-    getContent(): string {
-      return this.article.content
-    }
-  },
+  state: (): ArticleDetailState => ({
+    article: defaultArticle,
+  }),
   actions: {
-    setArticleDetail(article: ArticleDetail) {
-      this.article = deepClone(article)
+    async fetchArticleDetail(articleId: number) {
+      const rsp = await API.article.fetchAritcleDetail(articleId);
+      if (rsp.status == ResponseStatus.Success) {
+        lodash.merge(this.article, rsp.result); // 合并对象，保持响应性
+      Object.assign(this.article, rsp.result); // 直接更新状态，保持响应性
+      } else {
+        this.clearArticleDetail(); // 可以添加错误处理逻辑
+      }
     },
-
     clearArticleDetail() {
-      this.article = deepClone(defaultArticle)
+      lodash.merge(this.article, defaultArticle); // 合并对象，保持响应性
     }
   },
-})
+});
 
 interface PaginationListState {
   pagination: Pagination

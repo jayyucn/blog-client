@@ -1,28 +1,25 @@
 <template>
-    <v-md-preview :text="text" style="font-size: 40px;" ref="myPreview" id="preview" @copy-code-success="handleCopyCodeSuccess" />
+    <v-md-preview :text="text"  ref="myPreview" class="preview ssxx" id="preview"
+        @copy-code-success="handleCopyCodeSuccess" />
 </template>
 
-<style  lang="scss" scoped>
-.preview {
-    background-color: transparent;
-    // width: auto;
-}
-// .vuepress-markdown-body{
-//     width: auto;
-// }
+<style>
 
+
+/* // .vuepress-markdown-body{
+//     width: auto;
+// } */
+/* 
 @media screen and (max-width: $g-content-max-width){
     // .preview{
     //     max-width: $g-content-max-width; 
     //     width: auto;
     // }
     // .vuepress-markdown-body {
-        
     //     max-width: $g-content-max-width; 
     //     width: auto;
     // }
-}
-
+} */
 </style>
 
 <script setup lang="ts">
@@ -31,23 +28,18 @@ import { Message, getNavigationBarHeight } from '@/helpers/helper.component';
 import { nextTick, onMounted, ref } from 'vue';
 
 onMounted(() => {
-  nextTick(() => {
-    const style =( document.getElementsByClassName('vuepress-markdown-body').item(0) as HTMLElement).style;
-    style.background = 'transparent';
-    style.fontSize = '20px';
-    style.fontStyle = 'normal';
-    style.fontWeight = '400';
-    style.wordBreak = 'break-word';
-    style.overflowWrap = 'break-word';
-    style.maxWidth = '680px';// '$g-content-max-width';
-    style.minWidth = '0px';
-     /***
-      * John McWade美国设计师、教师、作家；创办Before & After杂志在他讲的关于一行是多少为最佳效果： 
-      * 一行能够很轻松的都下来是25个字。 
-      * 易读的文本一般30~80字符/行，包括标点。
-      * 多行文本35~45；最多为65。*/
-
-  })
+    nextTick(() => {
+        // const style =( document.getElementsByClassName('vuepress-markdown-body').item(0) as HTMLElement).style;
+        // style.background = 'transparent';
+        // style.fontSize = '20px';
+        // style.fontStyle = 'normal';
+        // style.fontWeight = '400';
+        // // style.wordBreak = 'break-word';
+        // // style.overflowWrap = 'break-word';
+        // // style.width = 'inherit';
+        // style.maxWidth = "680px";
+        // style.minWidth = "0";
+    })
 })
 
 useEventBus({

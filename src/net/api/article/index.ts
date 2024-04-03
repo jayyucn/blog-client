@@ -10,23 +10,23 @@ export enum SortType {
     Asc = 1, // 升序
     Desc = -1, // 降序
     Hottest = 2 // 热序
-  }
+}
 
-  export enum PublishState {
+export enum PublishState {
     Draft = 0, // 草稿
     Published = 1, // 已发布
     Recycle = -1 // 回收站
-  }
-  export enum PublicState {
+}
+export enum PublicState {
     Public = 1, // 公开
     Secret = -1, // 私密
     Reserve = 0 // 保留（限制）
-  }
-  export enum OriginState {
+}
+export enum OriginState {
     Original = 0, // 原创
     Reprint = 1, // 转载
     Hybrid = 2 // 混合
-  }
+}
 export interface PaginationParam {
     page: number
     page_size: number
@@ -57,12 +57,10 @@ export default class ArticleAPI {
      * @param {number} articcleId 
      * @memberof ArticleAPI
      */
-    public async fetchAritcleDetail(articcleId: number): Promise<void> {
-        const rsp = await http.get<ArticleDetail>({ url: `${APIKey.ARTICLE}/${articcleId}` })
-        if (rsp.status == ResponseStatus.Success) {
-            Store.articleDetail.setArticleDetail(rsp.result) // 更新全局状态
-        }
+    public async fetchAritcleDetail(articcleId: number) {
+        return await http.get<ArticleDetail>({ url: `${APIKey.ARTICLE}/${articcleId}` })
     }
+
 
     /**
      * 获取文章列表

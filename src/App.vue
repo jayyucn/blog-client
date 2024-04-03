@@ -8,11 +8,11 @@ import ConfigProvider from './views/ConfigProvider.vue';
 
 <template>
   <ConfigProvider>
-    <div class="container">
-      <Navigator class="header" />
-      <div class="content">
-        <RouterView class="main" />
-        <div class="footer">{{ i18n.t('common.copyRight') }}@jayyu.cn</div>
+    <div class="app-container">
+      <Navigator class="app-header" />
+      <div class="app-content">
+        <RouterView class="app-main" />
+        <div class="app-footer">{{ i18n.t('common.copyRight') }}@jayyu.cn</div>
       </div>
     </div>
     <el-backtop :bottom="20" :right="40">
@@ -23,23 +23,22 @@ import ConfigProvider from './views/ConfigProvider.vue';
 
 
 <style lang="scss" scoped>
-.container {
+.app-container {
   display: block;
 
-  .header {
+  .app-header {
     transform: translateY(0px);
     z-index: 500;
     top: 0;
     position: sticky;
   }
 
-  .content {
-    max-width: 1336px;
+  .app-content {
     margin: auto;
     display: block;
   }
 
-  .footer {
+  .app-footer {
     background-color: transparent;
     border-top: 1px solid var(--el-border-color);
     height: var(--header-height);
